@@ -1,0 +1,411 @@
+{
+    "fields": {
+        "AdditionalProperties_0": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-12 col-lg-12 label-control pt-0 text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": "",
+            "Type": "info almost-clear"
+        },
+        "AdditionalProperties_1": {
+            "ControlClassTags": "form-control marginleft15 width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 col-sm-12 label-control",
+            "ControlParentClass": "col-lg-12 col-sm-12"
+        },
+        "AdditionalProperties_2": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "EscapeDuplicateRegoNo": [
+                "TBA"
+            ],
+            "HintEscapeDuplicateRegoNo": "",
+            "ShowCantFindVehicle": false,
+            "HintCantFindVehicle": "Choose closest option to your vehicle",
+            "DisableIfBound": false,
+            "IsCommercialMotorOnly": [
+                0,
+                1
+            ],
+            "QuestionLabels": [
+                {
+                    "key": "stateOfVehicleRegistration",
+                    "value": "State of Vehicle Registration",
+                    "Prerequisite": [
+                        {
+                            "QuestionJsonKey": "VehicleClass",
+                            "MatchingCondition": [
+                                "SedanUteVanGoodsCarrying"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "registrationNumber",
+                    "value": "Registration Number",
+                    "Prerequisite": [
+                        {
+                            "QuestionJsonKey": "stateOfVehicleRegistration",
+                            "MatchingCondition": [
+                                "NSW",
+                                "QLD",
+                                "SA",
+                                "TAS",
+                                "VIC",
+                                "WA",
+                                "NT",
+                                "ACT"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "statesOfVehicle": [
+                {
+                    "key": "NotRegistered",
+                    "value": "Not Registered"
+                },
+                {
+                    "key": "ACT",
+                    "value": "Australian Capital Territory"
+                },
+                {
+                    "key": "NSW",
+                    "value": "New South Wales"
+                },
+                {
+                    "key": "NT",
+                    "value": "Northern Territory"
+                },
+                {
+                    "key": "QLD",
+                    "value": "Queensland"
+                },
+                {
+                    "key": "SA",
+                    "value": "South Australia"
+                },
+                {
+                    "key": "TAS",
+                    "value": "Tasmania"
+                },
+                {
+                    "key": "VIC",
+                    "value": "Victoria"
+                },
+                {
+                    "key": "WA",
+                    "value": "Western Australia"
+                }
+            ],
+            "RegoLookup": {
+                "Prerequisite": [
+                    {
+                        "QuestionJsonKey": "VehicleClass",
+                        "MatchingCondition": [
+                            "SedanUteVanGoodsCarrying"
+                        ]
+                    }
+                ],
+                "controlLabels": [
+                    {
+                        "key": "manufactureYear",
+                        "value": "Year of Manufacture"
+                    },
+                    {
+                        "key": "make",
+                        "value": "Make"
+                    },
+                    {
+                        "key": "model",
+                        "value": "Model"
+                    },
+                    {
+                        "key": "vehicleDescription",
+                        "value": "Vehicle Description"
+                    }
+                ]
+            },
+            "GlassesLookup": {
+                "Prerequisite": [
+                    {
+                        "QuestionJsonKey": "stateOfVehicleRegistration",
+                        "MatchingCondition": [
+                            "NotRegistered"
+                        ]
+                    }
+                ],
+                "PrerequisiteJoiner": "OR",
+                "controlLabels": [
+                    {
+                        "key": "manufactureYear",
+                        "value": "Year of Manufacture"
+                    },
+                    {
+                        "key": "make",
+                        "value": "Make"
+                    },
+                    {
+                        "key": "model",
+                        "value": "Model"
+                    },
+                    {
+                        "key": "style",
+                        "value": "Style"
+                    },
+                    {
+                        "key": "transmission",
+                        "value": "Transmission"
+                    },
+                    {
+                        "key": "size",
+                        "value": "Size"
+                    }
+                ]
+            },
+            "ManualLookup": {
+                "Prerequisite": [
+                    {
+                        "QuestionJsonKey": "VehicleClass",
+                        "MatchingCondition": []
+                    }
+                ],
+                "controlLabels": [
+                    {
+                        "key": "manufactureYear",
+                        "value": "Year of Manufacture"
+                    },
+                    {
+                        "key": "vehicleDescription",
+                        "value": "Vehicle Description"
+                    },
+                    {
+                        "key": "sumInsured",
+                        "value": "Sum Insured"
+                    }
+                ]
+            },
+            "RequiredIf": {
+                "Control": "UIDNumber",
+                "MatchingCondition": [
+                    "NotRegistered"
+                ]
+            }
+        },
+        "AdditionalProperties_3": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add Younger Driver"
+        },
+        "AdditionalProperties_4": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add Interested Party"
+        },
+        "AdditionalProperties_5": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add Claim",
+            "Version": "v1"
+        },
+        "AdditionalProperties_6": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "",
+            "ControlParentClass": "col-lg-12"
+        },
+        "AdditionalProperties_7": {
+            "ControlClassTags": "form-control width340",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": ""
+        },
+        "AdditionalProperties_8": {
+            "ControlClassTags": "form-control marginleft15 width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "ExternalParser": {
+                "Key": "activity",
+                "LookupType": "anzsic-v3",
+                "ErrorMessage": "Please select a valid Occupation from the list above"
+            }
+        },
+        "AdditionalProperties_9": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add Factory Accessory"
+        },
+        "AdditionalProperties_10": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": "",
+            "Tag": {
+                "excess": true
+            }
+        },
+        "AdditionalProperties_11": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6col-lg-6label-controlpt-0text-righttext-left-mbfont14",
+            "ControlLabelClassTags": "col-lg-8col-sm-8label-control",
+            "ControlParentClass": "col-lg-6col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add More"
+        },
+        "AdditionalProperties_12": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": ""
+        },
+        "AdditionalProperties_13": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "UILook": "accordion",
+            "RiskButtonText": "Add Another Vehicle",
+            "UpperLimit": 20,
+            "UpperLimitMessage": "Currently we limit #UpperLimit vehicles per policy.",
+            "DeletionReasons": [
+                {
+                    "key": "TotalLoss",
+                    "value": "Total Loss"
+                },
+                {
+                    "key": "Other",
+                    "value": "Other"
+                }
+            ],
+            "DeletionPrerequisites": {
+                "transactionTypeId": 2
+            },
+            "Label": {
+                "Props": null,
+                "Separator": "",
+                "Method": {
+                    "name": "getVehicleNameV1",
+                    "picker": "VehiclesDetail",
+                    "props": [
+                        "registrationNumber",
+                        "manufactureYear",
+                        "make",
+                        "model",
+                        "vehicleDescription"
+                    ]
+                }
+            },
+            "textOnDeletion": "risk",
+            "ManualVehicleLabelCombination": {
+                "JsonPath": [
+                    "RegistrationNumber",
+                    "YearOfManufacture",
+                    "Make",
+                    "VehicleDescription"
+                ],
+                "Separator": "-"
+            }
+        },
+        "AdditionalProperties_14": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add More"
+        },
+        "AdditionalProperties_15": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6"
+        },
+        "AdditionalProperties_16": {
+            "ControlClassTags": "form-control",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "UILook": "table",
+            "RiskButtonText": "Add Non Standard Accessory"
+        },
+        "AdditionalProperties_17": {
+            "ControlClassTags": "form-control marginleft15 width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+            "ControlParentClass": "col-lg-6 col-sm-6",
+            "ManualAddressFields": [
+                {
+                    "MappingFormControl": "StreetAddress",
+                    "QuestionLabel": "Street Number/Name",
+                    "ControlLabel": "Street Number/Name",
+                    "Show": true,
+                    "HintText": "",
+                    "IsRequired": true
+                },
+                {
+                    "MappingFormControl": "AddressDescription",
+                    "QuestionLabel": "Address Description",
+                    "ControlLabel": "Address Description",
+                    "Show": true,
+                    "HintText": "",
+                    "IsRequired": false
+                },
+                {
+                    "MappingFormControl": "WholeSuburb",
+                    "QuestionLabel": "Suburb",
+                    "ControlLabel": "Suburb",
+                    "Show": true,
+                    "HintText": "Select valid suburb from the results",
+                    "IsRequired": true
+                }
+            ],
+            "Locking": {
+                "status": true
+            }
+        },
+        "AdditionalProperties_18": {
+            "ControlClassTags": "form-control minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "",
+            "ControlParentClass": "col-lg-12"
+        },
+        "AdditionalProperties_19": {
+            "ControlClassTags": "form-control width640 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "",
+            "ControlParentClass": "col-lg-12"
+        },
+        "AdditionalProperties_20": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-12 col-lg-12 label-control pt-0 text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": "",
+            "Type": "info clear"
+        },
+        "AdditionalProperties_21": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-12 col-lg-12 label-control text-center pt-0 font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": "",
+            "Type": "warning"
+        },
+        "AdditionalProperties_22": {
+            "ControlClassTags": "form-control width340 minheight37",
+            "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+            "ControlLabelClassTags": "col-lg-12 label-control",
+            "ControlParentClass": ""
+        }
+    },
+    "questions": {}
+}

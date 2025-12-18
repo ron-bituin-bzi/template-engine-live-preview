@@ -1,0 +1,5234 @@
+{
+    "InsuredName": {
+        "JsonPath": "InsuredName",
+        "QuestionLabel": "Insured Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 1,
+            "DocumentTitle": "Insured Name"
+        },
+        "ControlLabel": "Insured Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.BusinessDetails.InsuredName",
+        "DataType": "Insured",
+        "DataTypePath": "BusinessDetails.InsuredName",
+        "ArrayTitle": ""
+    },
+    "ABN": {
+        "JsonPath": "ABN",
+        "QuestionLabel": "ABN Number",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 2,
+            "DocumentTitle": "ABN Number"
+        },
+        "ControlLabel": "ABN Number",
+        "InputType": "number",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_1"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_ABN"
+        },
+        "HintText": null,
+        "HelpText": "Use of the ABN LOOKUP function may pre-populate some fields based on externally available information. Please check the information carefully and update it if required. Any changes can impact quoted premium amounts and/or the acceptability. Responsibility is yours to ensure accuracy.",
+        "ResponseXPath": "$.Response.BusinessDetails.ABN",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "BusinessTradingName": {
+        "JsonPath": "BusinessTradingName",
+        "QuestionLabel": "Registered Business Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 3,
+            "DocumentTitle": "Registered Business Name"
+        },
+        "ControlLabel": "Business Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.BusinessDetails.BusinessTradingName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "PrimaryAddress": {
+        "JsonPath": "PrimaryAddress",
+        "QuestionLabel": "Primary Business Address",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 4,
+            "DocumentTitle": "Primary Business Address"
+        },
+        "ControlLabel": "Address",
+        "InputType": "address",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_17"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.BusinessDetails.PrimaryAddress",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "PrimaryBusinessActivity": {
+        "JsonPath": "PrimaryBusinessActivity",
+        "QuestionLabel": "Primary Business Activity",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 5,
+            "DocumentTitle": "Primary Business Activity"
+        },
+        "ControlLabel": "Primary Business Activity",
+        "InputType": "typeahead",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_8"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.BusinessDetails.PrimaryBusinessActivity",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "StampDutyExempt": {
+        "JsonPath": "StampDutyExempt",
+        "QuestionLabel": "NSW Small Business Stamp Duty Exempt?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 7,
+            "DocumentTitle": "NSW Small Business Stamp Duty Exempt?"
+        },
+        "ControlLabel": "Stamp Duty Exempt",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": "See 'i' for more information",
+        "HelpText": "Meaning you are a small business individual, partnership, company or trust and that the annual turnover of your business and its affiliates is less than 2 million dollars.  If the client is unsure whether they can make this declaration please recommend that they ask their financial advisor.",
+        "ResponseXPath": "$.Response.BusinessDetails.StampDutyExempt",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "StampDutyExemptDec": {
+        "JsonPath": "BusinessSdExemptDeclaration",
+        "QuestionLabel": "By selecting the NSW small business insurance stamp duty exemption you agree that you are in possession of a current small business declaration to ensure the eligibility of the exemption. The declaration is in an approved format, contains all the required information and will be retained for 5 years?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 8,
+            "DocumentTitle": "By selecting the NSW small business insurance stamp duty exemption you agree that you are in possession of a current small business declaration to ensure the eligibility of the exemption. The declaration is in an approved format, contains all the required information and will be retained for 5 years?",
+            "DisclaimerText": "",
+            "PrerequisiteJoiner": ""
+        },
+        "ControlLabel": "",
+        "InputType": "radio",
+        "DefaultValue": null,
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "StampDutyExempt",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": null,
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": "Before selecting the NSW small business insurance<br>stamp duty exemption, ensure you have a current declaration<br>(signed prior to the policy being bound ) on file. <br>These are subject to audit.",
+        "HelpText": "<p><strong>Please note:</strong></p><p>Before selecting the NSW small business insurance stamp duty exemption, ensure you have a current small business declaration in the approved format (as determined by the Chief Commissioner of State Revenue) from the client on file.</p><p>By selecting the exemption on behalf of the insured, you declare that you are appropriately authorised and knowledgeable to obtain the declaration.</p><p>This declaration must confirm eligibility for the exemption and be retained for a minimum of 5 years. These declarations are subject to audit. Ensure you can provide a copy upon request. Non-compliance may result in penalties and affect the validity of the exemption.</p>",
+        "ResponseXPath": "$.Response.BusinessDetails.BusinessSdExemptDeclaration",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Bankruptcy": {
+        "JsonPath": "Bankruptcy",
+        "QuestionLabel": "Has the Insured in the last 3 years been involved in a business which has been declared bankrupt, become insolvent, or subject to voluntary administration?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 1,
+            "DocumentTitle": "Has the Insured in the last 3 years been involved in a business which has been declared bankrupt, become insolvent, or subject to voluntary administration?"
+        },
+        "ControlLabel": "Bankruptcy",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.Bankruptcy",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "BankruptcyDetails": {
+        "JsonPath": "BankruptcyDetails",
+        "QuestionLabel": "Bankruptcy Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 2,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "Bankruptcy",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_11"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.BankruptcyDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Type": {
+        "JsonPath": "Type",
+        "QuestionLabel": "Type",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 3,
+            "DocumentTitle": "Type"
+        },
+        "ControlLabel": "Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "BankruptcyDischarged",
+                "value": "Bankruptcy (Discharged)"
+            },
+            {
+                "key": "BankruptcyUndischarged",
+                "value": "Bankruptcy (Undischarged)"
+            },
+            {
+                "key": "Insolvency",
+                "value": "Insolvency"
+            },
+            {
+                "key": "VoluntaryAdministration",
+                "value": "Voluntary Administration"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.BankruptcyDetails.*.Type",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 4,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.BankruptcyDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Description": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 5,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.BankruptcyDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "CriminalConvictions": {
+        "JsonPath": "CriminalConvictions",
+        "QuestionLabel": "Does the insured or any partner or director have any unexpired or unspent criminal convictions?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 6,
+            "DocumentTitle": "Does the insured or any partner or director have any unexpired or unspent criminal convictions?"
+        },
+        "ControlLabel": "Criminal Convictions",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.CriminalConvictions",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "CriminalConvictionsDetails": {
+        "JsonPath": "CriminalConvictionsDetails",
+        "QuestionLabel": "Criminal Convictions Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 7,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "CriminalConvictions",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.CriminalConvictionsDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_2": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 9,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.CriminalConvictionsDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Description_2": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 10,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.CriminalConvictionsDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "InsuranceDeclined": {
+        "JsonPath": "InsuranceDeclined",
+        "QuestionLabel": "Has the Insured in the last 3 years had an insurance policy declined, cancelled or terms imposed?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 11,
+            "DocumentTitle": "Has the Insured in the last 3 years had an insurance policy declined, cancelled or terms imposed?"
+        },
+        "ControlLabel": "Insurance Declined",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.InsuranceDeclined",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "InsuranceDeclinedDetails": {
+        "JsonPath": "InsuranceDeclinedDetails",
+        "QuestionLabel": "Insurance Declined Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 12,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "InsuranceDeclined",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.InsuranceDeclinedDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Reason": {
+        "JsonPath": "Reason",
+        "QuestionLabel": "Reason",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 13,
+            "DocumentTitle": "Reason"
+        },
+        "ControlLabel": "Reason",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "OutsideInsurerAppetite",
+                "value": "Outside of Insurer appetite"
+            },
+            {
+                "key": "InsurerCeasedTrading",
+                "value": "Insurer ceased trading"
+            },
+            {
+                "key": "Other",
+                "value": "Other Reason"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.InsuranceDeclinedDetails.*.Reason",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_3": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 14,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.InsuranceDeclinedDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Description_3": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 15,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.InsuranceDeclinedDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "AlcoholDrugs": {
+        "JsonPath": "AlcoholDrugs",
+        "QuestionLabel": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any convictions or had any penalties imposed for driving under the influence of alcohol or drugs?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 16,
+            "DocumentTitle": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any convictions or had any penalties imposed for driving under the influence of alcohol or drugs?"
+        },
+        "ControlLabel": "Declaration History",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.AlcoholDrugs",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "AlcoholDrugsDetails": {
+        "JsonPath": "AlcoholDrugsDetails",
+        "QuestionLabel": "Alcohol Drugs Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 17,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "AlcoholDrugs",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.AlcoholDrugsDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverName": {
+        "JsonPath": "DriverName",
+        "QuestionLabel": "Driver Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 18,
+            "DocumentTitle": "Driver Name"
+        },
+        "ControlLabel": "Driver Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.AlcoholDrugsDetails.*.DriverName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_4": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 19,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.AlcoholDrugsDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Details": {
+        "JsonPath": "Details",
+        "QuestionLabel": "Details",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 20,
+            "DocumentTitle": "Details"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.AlcoholDrugsDetails.*.Details",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "LicenceCancelled": {
+        "JsonPath": "LicenceCancelled",
+        "QuestionLabel": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had a drivers licence cancelled or suspended or restricted?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 21,
+            "DocumentTitle": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had a drivers licence cancelled or suspended or restricted?"
+        },
+        "ControlLabel": "Declaration History",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.LicenceCancelled",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "LicenceCancelledDetails": {
+        "JsonPath": "LicenceCancelledDetails",
+        "QuestionLabel": "Licence Cancelled Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 22,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "LicenceCancelled",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.LicenceCancelledDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverName_2": {
+        "JsonPath": "DriverName",
+        "QuestionLabel": "Driver Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 23,
+            "DocumentTitle": "Driver Name"
+        },
+        "ControlLabel": "Driver Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.LicenceCancelledDetails.*.DriverName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_5": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 24,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.LicenceCancelledDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Details_2": {
+        "JsonPath": "Details",
+        "QuestionLabel": "Details",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 25,
+            "DocumentTitle": "Details"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.LicenceCancelledDetails.*.Details",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverInsuranceDeclined": {
+        "JsonPath": "DriverInsuranceDeclined",
+        "QuestionLabel": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any motor vehicle insurance declined?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 26,
+            "DocumentTitle": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any motor vehicle insurance declined?"
+        },
+        "ControlLabel": "Declaration History",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.DriverInsuranceDeclined",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverInsuranceDeclinedDetails": {
+        "JsonPath": "DriverInsuranceDeclinedDetails",
+        "QuestionLabel": "Driver Insurance Declined Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 27,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "DriverInsuranceDeclined",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.DriverInsuranceDeclinedDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverName_3": {
+        "JsonPath": "DriverName",
+        "QuestionLabel": "Driver Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 28,
+            "DocumentTitle": "Driver Name"
+        },
+        "ControlLabel": "Driver Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.DriverInsuranceDeclinedDetails.*.DriverName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_6": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 29,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.DriverInsuranceDeclinedDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Details_3": {
+        "JsonPath": "Details",
+        "QuestionLabel": "Details",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 30,
+            "DocumentTitle": "Details"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.DriverInsuranceDeclinedDetails.*.Details",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimDeclined": {
+        "JsonPath": "ClaimDeclined",
+        "QuestionLabel": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had motor claims declined?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 31,
+            "DocumentTitle": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had motor claims declined?"
+        },
+        "ControlLabel": "Insurance Declined",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclined",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimDeclinedDetails": {
+        "JsonPath": "ClaimDeclinedDetails",
+        "QuestionLabel": "Claim Declined Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 32,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ClaimDeclined",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_14"
+            }
+        ],
+        "DataSource": "",
+        "Validation": "",
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclinedDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverName_4": {
+        "JsonPath": "DriverName",
+        "QuestionLabel": "Driver Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 33,
+            "DocumentTitle": "Driver Name"
+        },
+        "ControlLabel": "Driver Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclinedDetails.*.DriverName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Reason_2": {
+        "JsonPath": "Reason",
+        "QuestionLabel": "Reason",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 34,
+            "DocumentTitle": "Reason"
+        },
+        "ControlLabel": "Reason",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "BelowExcess",
+                "value": "Below excess"
+            },
+            {
+                "key": "Fraud",
+                "value": "Fraud"
+            },
+            {
+                "key": "NonDisclosure",
+                "value": "Non-disclosure"
+            },
+            {
+                "key": "OutsideCoverage",
+                "value": "Outside of policy coverage"
+            },
+            {
+                "key": "PreExistingDefect",
+                "value": "Pre-existing defect"
+            },
+            {
+                "key": "WearTear",
+                "value": "Wear and tear"
+            },
+            {
+                "key": "Other",
+                "value": "Other Reason"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclinedDetails.*.Reason",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_7": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 35,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclinedDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Description_4": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 36,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimDeclinedDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimsHistory": {
+        "JsonPath": "ClaimsHistory",
+        "QuestionLabel": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any claims?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 37,
+            "DocumentTitle": "In the last 3 years, has the Insured or any person who is likely to drive the insured vehicle(s) had any claims?"
+        },
+        "ControlLabel": "Claims History",
+        "InputType": "radio",
+        "DefaultValue": "NO",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistory",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimsHistoryDetails": {
+        "JsonPath": "ClaimsHistoryDetails",
+        "QuestionLabel": "Claims History Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 38,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ClaimsHistory",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_5"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriverName_5": {
+        "JsonPath": "DriverName",
+        "QuestionLabel": "Driver Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 39,
+            "DocumentTitle": "Driver Name"
+        },
+        "ControlLabel": "Driver Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.DriverName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Type_2": {
+        "JsonPath": "Type",
+        "QuestionLabel": "Type",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 40,
+            "DocumentTitle": "Type"
+        },
+        "ControlLabel": "Claim Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "DamageWhilstParked",
+                "value": "Damage whilst parked"
+            },
+            {
+                "key": "DualLiability",
+                "value": "Dual Liability"
+            },
+            {
+                "key": "NaturalHazard",
+                "value": "Natural Hazard (e.g. flood, fire)"
+            },
+            {
+                "key": "AtFault",
+                "value": "Insured at fault"
+            },
+            {
+                "key": "Theft",
+                "value": "Theft"
+            },
+            {
+                "key": "ThirdPartyFault",
+                "value": "Third party at fault"
+            },
+            {
+                "key": "UnidentifiedThirdPartyFault",
+                "value": "Unidentified third party at fault"
+            },
+            {
+                "key": "Windscreen",
+                "value": "Windscreen"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.Type",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Year_8": {
+        "JsonPath": "Year",
+        "QuestionLabel": "Date",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 41,
+            "DocumentTitle": "Date"
+        },
+        "ControlLabel": "Date",
+        "InputType": "date",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Date_Picker"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.Year",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimAmount": {
+        "JsonPath": "ClaimAmount",
+        "QuestionLabel": "Claim Amount",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 42,
+            "DocumentTitle": "Claim Amount"
+        },
+        "ControlLabel": "Claim Amount",
+        "InputType": "currency",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.ClaimAmount",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Details_1": {
+        "JsonPath": "Details",
+        "QuestionLabel": "Details",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 43,
+            "DocumentTitle": "Details"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.Details",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ReportedDate": {
+        "JsonPath": "ReportedDate",
+        "QuestionLabel": "Reported Date",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 44,
+            "DocumentTitle": "Reported Date"
+        },
+        "ControlLabel": "Reported Date",
+        "InputType": "hidden",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.ReportedDate",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimClosed": {
+        "JsonPath": "ClaimClosed",
+        "QuestionLabel": "Claim Closed",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 45,
+            "DocumentTitle": "Claim Closed"
+        },
+        "ControlLabel": "Claim Closed",
+        "InputType": "hidden",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.ClaimClosed",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ClaimNumber": {
+        "JsonPath": "ClaimNumber",
+        "QuestionLabel": "Claim Number",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 46,
+            "DocumentTitle": "Claim Number"
+        },
+        "ControlLabel": "Claim Number",
+        "InputType": "hidden",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.UnderwritingCriteria.ClaimsHistoryDetails.*.ClaimNumber",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Vehicles": {
+        "JsonPath": "Vehicles",
+        "QuestionLabel": "Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 1,
+            "DocumentTitle": "Details",
+            "HideText": true,
+            "MetaFields": [
+                {
+                    "DocTitle": "Start Date",
+                    "JsonPath": "StartDate",
+                    "Order": 1
+                },
+                {
+                    "DocTitle": "Expiration Date",
+                    "JsonPath": "ExpirationDate",
+                    "Order": 2
+                },
+                {
+                    "DocTitle": "Deletion Reason",
+                    "JsonPath": "DeletionReason",
+                    "Order": 3
+                }
+            ],
+            "Metadata": "Assets.Description"
+        },
+        "ControlLabel": "Vehicles",
+        "InputType": "array",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_13"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles",
+        "Metadata": "Assets.Description",
+        "DataType": "RiskNode",
+        "DataTypePath": "CommercialVehiclesPolicy.Vehicles",
+        "ArrayTitle": "VehiclesDetail.vehicleDescription"
+    },
+    "VehicleClass": {
+        "JsonPath": "VehicleClass",
+        "QuestionLabel": "Vehicle Class",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 3,
+            "DocumentTitle": "Vehicle Class"
+        },
+        "ControlLabel": "Vehicle Class",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "SedanUteVanGoodsCarrying",
+                "value": "Sedan, station wagon, 4WD, utility, van or other goods carrying vehicle"
+            },
+            {
+                "key": "FoodTrailer",
+                "value": "Food/Drinks Trailer"
+            },
+            {
+                "key": "TrailerBox",
+                "value": "Trailer - Box / Boat / Horse / Luggage"
+            },
+            {
+                "key": "TrailerOther",
+                "value": "Trailer - Other"
+            },
+            {
+                "key": "TrailerDogAirCon",
+                "value": "Dog Washing-Grooming Trailer (Airconditioned)"
+            },
+            {
+                "key": "TrailerDogNonAirCon",
+                "value": "Dog Washing-Grooming Trailer (Non-Airconditioned)"
+            },
+            {
+                "key": "Forklift",
+                "value": "Forklift"
+            },
+            {
+                "key": "Excavator",
+                "value": "Excavator/Backhoe/Dingo/Loader/Dozer/Grader"
+            },
+            {
+                "key": "Mower",
+                "value": "Mower"
+            },
+            {
+                "key": "StumpGrinder",
+                "value": "Stump Grinder/Mulcher/Woodchipper/Splitter"
+            },
+            {
+                "key": "OtherMobilePlant",
+                "value": "Other Mobile Plant/Equipment (excl. Scissor-Boom Lifts/Cherrypickers/Cranes/Agricultural Vehicles)"
+            },
+            {
+                "key": "ScissorLift",
+                "value": "Scissor-Boom Lifts/Cherrypickers/Cranes (NOT AVAILABLE)"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": "See 'i' for more information",
+        "HelpText": "Please note our maximum capacity for Goods Carrying Vehicles/Trucks is 8T GVM.",
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehicleClass",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "InvalidVehicleClassNote": {
+        "JsonPath": "InvalidVehicleClassNote",
+        "QuestionLabel": "<b>NOTE:</b> These vehicle types are currently outside of our risk appetite",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 25,
+            "DocumentTitle": "<b>NOTE:</b> These vehicle types are currently outside of our risk appetite"
+        },
+        "ControlLabel": "Total Insured Amount",
+        "InputType": "note",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "ScissorLift"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_21"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.TotalInsuredValue",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "CoverType": {
+        "JsonPath": "CoverType",
+        "QuestionLabel": "Cover Type",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 10,
+            "DocumentTitle": "Cover Type"
+        },
+        "ControlLabel": "Cover Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "Comprehensive",
+                "value": "Comprehensive"
+            },
+            {
+                "key": "ThirdPartyFireTheft",
+                "value": "Third Party Fire & Theft"
+            },
+            {
+                "key": "ThirdPartyOnly",
+                "value": "Third Party Only"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.CoverType",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VehiclesDetail": {
+        "JsonPath": "VehiclesDetail",
+        "QuestionLabel": "Vehicle Lookup",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 2,
+            "DocumentTitle": "Vehicle Description",
+            "ChildDocProps": [
+                {
+                    "DocTitle": "Year of Manufacture",
+                    "JsonPath": "manufactureYear",
+                    "Order": 4
+                },
+                {
+                    "DocTitle": "Make",
+                    "JsonPath": "make",
+                    "Order": 5
+                },
+                {
+                    "DocTitle": "Vehicle registered",
+                    "JsonPath": "stateOfVehicleRegistration",
+                    "Order": 1,
+                    "DropDown": [
+                        {
+                            "key": "NotRegistered",
+                            "value": "Not Registered"
+                        },
+                        {
+                            "key": "NSW",
+                            "value": "New South Wales"
+                        },
+                        {
+                            "key": "QLD",
+                            "value": "Queensland"
+                        },
+                        {
+                            "key": "SA",
+                            "value": "South Australia"
+                        },
+                        {
+                            "key": "TAS",
+                            "value": "Tasmania"
+                        },
+                        {
+                            "key": "VIC",
+                            "value": "Victoria"
+                        },
+                        {
+                            "key": "WA",
+                            "value": "Western Australia"
+                        },
+                        {
+                            "key": "NT",
+                            "value": "Northern Territory"
+                        }
+                    ]
+                },
+                {
+                    "DocTitle": "Registration Number",
+                    "JsonPath": "registrationNumber",
+                    "Order": 2
+                },
+                {
+                    "DocTitle": "Model",
+                    "JsonPath": "model",
+                    "Order": 3
+                }
+            ]
+        },
+        "ControlLabel": "Vehicles Detail",
+        "InputType": "vehicleselection",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": {
+            "$ref": "referencing_fields.json#/AdditionalProperties_2"
+        },
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "false",
+                "ErrorMessage": "This field is required"
+            }
+        ],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehiclesDetail",
+        "DataType": "RiskDescriptor",
+        "DataTypePath": "CommercialVehiclesPolicy.Vehicles.VehiclesDetail.vehicleDescription",
+        "ArrayTitle": ""
+    },
+    "StateVehicleRegistered": {
+        "JsonPath": "StateVehicleRegistered",
+        "QuestionLabel": "State of Vehicle Registration",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 3,
+            "DocumentTitle": "State of Vehicle Registration"
+        },
+        "ControlLabel": "Vehicle Registered",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "NotRegistered",
+                "value": "Not Registered"
+            },
+            {
+                "key": "NSW",
+                "value": "New South Wales"
+            },
+            {
+                "key": "QLD",
+                "value": "Queensland"
+            },
+            {
+                "key": "SA",
+                "value": "South Australia"
+            },
+            {
+                "key": "TAS",
+                "value": "Tasmania"
+            },
+            {
+                "key": "VIC",
+                "value": "Victoria"
+            },
+            {
+                "key": "WA",
+                "value": "Western Australia"
+            },
+            {
+                "key": "NT",
+                "value": "Northern Territory"
+            },
+            {
+                "key": "ACT",
+                "value": "Australian Capital Territory"
+            }
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.StateVehicleRegistered",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "RegistrationNumber": {
+        "JsonPath": "RegistrationNumber",
+        "QuestionLabel": "Registration Number",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 5,
+            "DocumentTitle": "Registration Number"
+        },
+        "ControlLabel": "Registration Number",
+        "InputType": "text",
+        "DefaultValue": null,
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "StateVehicleRegistered",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "NSW",
+                    "QLD",
+                    "SA",
+                    "TAS",
+                    "VIC",
+                    "WA",
+                    "NT",
+                    "ACT"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.RegistrationNumber",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "YearOfManufacture": {
+        "JsonPath": "YearOfManufacture",
+        "QuestionLabel": "Year of Manufacture",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 6,
+            "DocumentTitle": "Year of Manufacture"
+        },
+        "ControlLabel": "Year of Manufacture",
+        "InputType": "number",
+        "DefaultValue": null,
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "min",
+                "Value": "1920",
+                "ErrorMessage": "Please select a valid year"
+            },
+            {
+                "ValidationType": "max",
+                "Value": "CURRENT_YEAR",
+                "ErrorMessage": "Please select a valid year"
+            }
+        ],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.YearOfManufacture",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Make": {
+        "JsonPath": "Make",
+        "QuestionLabel": "Make",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 7,
+            "DocumentTitle": "Make"
+        },
+        "ControlLabel": "Make",
+        "InputType": "text",
+        "DefaultValue": null,
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.Make",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VehicleDescription": {
+        "JsonPath": "VehicleDescription",
+        "QuestionLabel": "Vehicle Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 8,
+            "DocumentTitle": "Vehicle Description"
+        },
+        "ControlLabel": "Vehicle Description",
+        "InputType": "text",
+        "DefaultValue": null,
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehicleDescription",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VinSerialNumber": {
+        "JsonPath": "VinSerialNumber",
+        "QuestionLabel": "Vehicle Identification Number or Engine Number or Chassis Number or Serial Number",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 9,
+            "DocumentTitle": "Vehicle Identification Number or Engine Number or Chassis Number or Serial Number"
+        },
+        "ControlLabel": "UIDNumber",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VinSerialNumber",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "SumInsuredType": {
+        "JsonPath": "SumInsuredType",
+        "QuestionLabel": "Sum Insured Type",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 11,
+            "DocumentTitle": "Sum Insured Type"
+        },
+        "ControlLabel": "Insured Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "Market",
+                "value": "Market value",
+                "$pre": {
+                    "QuestionJsonKey": "VehicleClass",
+                    "Relationship": "sibling",
+                    "MatchingCondition": [
+                        "SedanUteVanGoodsCarrying"
+                    ]
+                }
+            },
+            {
+                "key": "Agreed",
+                "value": "Agreed value",
+                "$pre": {
+                    "QuestionJsonKey": "VehicleClass",
+                    "Relationship": "sibling",
+                    "MatchingCondition": [
+                        "SedanUteVanGoodsCarrying"
+                    ]
+                }
+            },
+            {
+                "key": "SumInsured",
+                "value": "Sum Insured",
+                "$pre": {
+                    "QuestionJsonKey": "VehicleClass",
+                    "Relationship": "sibling",
+                    "MatchingCondition": [
+                        "FoodTrailer",
+                        "TrailerBox",
+                        "TrailerOther",
+                        "TrailerDogAirCon",
+                        "TrailerDogNonAirCon",
+                        "Forklift",
+                        "Excavator",
+                        "Mower",
+                        "StumpGrinder",
+                        "OtherMobilePlant"
+                    ]
+                }
+            }
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.SumInsuredType",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "SumInsured": {
+        "JsonPath": "SumInsured",
+        "QuestionLabel": "Insured Amount",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 12,
+            "DocumentTitle": "Insured Amount"
+        },
+        "ControlLabel": "Insured Amount",
+        "InputType": "currency",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "SumInsuredType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Agreed",
+                    "SumInsured"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "Fixed",
+                "Value": "",
+                "ErrorMessage": "Please enter a value between #lower and #upper",
+                "Computation": {
+                    "Against": "VehiclesDetail.marketValue",
+                    "Of": {
+                        "DependentQuestion": "VehicleClass",
+                        "Default": {
+                            "operation": "flat",
+                            "lower": "1",
+                            "upper": "1000000"
+                        },
+                        "Values": [
+                            {
+                                "key": "SedanUteVanGoodsCarrying",
+                                "value": {
+                                    "operation": "multi",
+                                    "lower": "0.7",
+                                    "upper": "1.3",
+                                    "message": "Please enter a value between #lower and #upper"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "HintText": "Vehicle value only other than for Food Trailer or Dog<br>Washing-Grooming Trailer where full value including<br>any modifications, attachments or non-standard accessories<br>to be entered.",
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.SumInsured",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DocLegalLimitLiability": {
+        "JsonPath": "DocLegalLimitLiability",
+        "QuestionLabel": "<strong>Legal Limit Liability: $30,000,000</strong>",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 13,
+            "DocumentTitle": "<strong>Legal Limit Liability: $30,000,000</strong>",
+            "DisclaimerText": "",
+            "PrerequisiteJoiner": "",
+            "Prerequisite": []
+        },
+        "ControlLabel": "",
+        "InputType": "docNote",
+        "AvailableValue": [],
+        "DefaultValue": "",
+        "Prerequisite": [],
+        "PrerequisiteJoiner": null,
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_20"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Address": {
+        "JsonPath": "Address",
+        "QuestionLabel": "Overnight parking address",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 14,
+            "DocumentTitle": "Overnight parking address"
+        },
+        "ControlLabel": "Address",
+        "InputType": "address",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_17"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.Address",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VehiclePrimaryUse": {
+        "JsonPath": "VehiclePrimaryUse",
+        "QuestionLabel": "Primary vehicle usage",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 15,
+            "DocumentTitle": "Primary vehicle usage"
+        },
+        "ControlLabel": "Vehicle Primary Usage",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "Business",
+                "value": "Business"
+            },
+            {
+                "key": "Private",
+                "value": "Private"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehiclePrimaryUse",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VehicleUsedFor": {
+        "JsonPath": "VehicleUsedFor",
+        "QuestionLabel": "Is the vehicle used for any of the following",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 16,
+            "DocumentTitle": "Is the vehicle used for any of the following"
+        },
+        "ControlLabel": "Is the vehicle used for any of the following",
+        "InputType": "checkbox",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "PassengerTransport",
+                "value": "Passenger transport for hire, fare or reward",
+                "$ifnot": "None"
+            },
+            {
+                "key": "PassengerTransportExclHire",
+                "value": "Passenger transport (excl. hire, fare or reward)",
+                "$ifnot": "None"
+            },
+            {
+                "key": "CourierDeliveryServices",
+                "value": "Courier or delivery/removalist services",
+                "$ifnot": "None"
+            },
+            {
+                "key": "TransportingFlammableHazardousGoods",
+                "value": "Transporting flammable liquids, gases, chemicals or explosive substances (non-incidental)",
+                "$ifnot": "None"
+            },
+            {
+                "key": "HireCar",
+                "value": "Hire Vehicle (incl Dry Hire)",
+                "$ifnot": "None"
+            },
+            {
+                "key": "MobileFoodVendors",
+                "value": "Food Truck / Trailer / Van",
+                "$ifnot": "None"
+            },
+            {
+                "key": "TowingRecovery",
+                "value": "Towing and Recovery",
+                "$ifnot": "None"
+            },
+            {
+                "key": "CourtesyCar",
+                "value": "Courtesy Vehicle",
+                "$ifnot": "None"
+            },
+            {
+                "key": "RacingSportingEvents",
+                "value": "Racing or Sporting Events",
+                "$ifnot": "None"
+            },
+            {
+                "key": "None",
+                "value": "None of the above"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_7"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehicleUsedFor.*",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "FactoryAccessories": {
+        "JsonPath": "FactoryAccessories",
+        "QuestionLabel": "Do you want to declare any standard tools, standard modifications and accessories, as supplied by the manufacturer?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 17,
+            "DocumentTitle": "Do you want to declare any standard tools, standard modifications and accessories, as supplied by the manufacturer?"
+        },
+        "ControlLabel": "Accessories",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.FactoryAccessories",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "FactoryAccessoriesDetails": {
+        "JsonPath": "FactoryAccessoriesDetails",
+        "QuestionLabel": "Factory Accessories Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 18,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "FactoryAccessories",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_9"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.FactoryAccessoriesDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": "Description"
+    },
+    "Description_5": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 19,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_19"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.FactoryAccessoriesDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Accessories": {
+        "JsonPath": "Accessories",
+        "QuestionLabel": "Does the vehicle have any modifications, attachments or non-standard accessories?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 20,
+            "DocumentTitle": "Does the vehicle have any modifications, attachments or non-standard accessories?"
+        },
+        "ControlLabel": "Accessories",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying",
+                    "TrailerBox",
+                    "TrailerOther",
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.Accessories",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "AccessoriesDetails": {
+        "JsonPath": "AccessoriesDetails",
+        "QuestionLabel": "Accessories Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 21,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "Accessories",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_16"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.AccessoriesDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Type_3": {
+        "JsonPath": "Type",
+        "QuestionLabel": "Type",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 22,
+            "DocumentTitle": "Type"
+        },
+        "ControlLabel": "Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "4WDAccessories",
+                "value": "4WD Accessories (not listed elsewhere)"
+            },
+            {
+                "key": "Airconditioning",
+                "value": "Airconditioning"
+            },
+            {
+                "key": "Alarm",
+                "value": "Alarm"
+            },
+            {
+                "key": "ArtworkSignwriting",
+                "value": "Artwork/Signwriting"
+            },
+            {
+                "key": "Auger",
+                "value": "Auger"
+            },
+            {
+                "key": "BodyWork",
+                "value": "Body work"
+            },
+            {
+                "key": "Bucket",
+                "value": "Bucket"
+            },
+            {
+                "key": "BullBarTowBar",
+                "value": "Bull Bar / Carry Rack / Tow Bar / Side Steps"
+            },
+            {
+                "key": "CargoBarriersCages",
+                "value": "Cargo Barriers & Cages"
+            },
+            {
+                "key": "Canopy",
+                "value": "Canopy"
+            },
+            {
+                "key": "Catcher",
+                "value": "Catcher"
+            },
+            {
+                "key": "CleaningEquipment",
+                "value": "Cleaning Equipment"
+            },
+            {
+                "key": "Compressor",
+                "value": "Compressor"
+            },
+            {
+                "key": "Crane",
+                "value": "Crane"
+            },
+            {
+                "key": "Cutter",
+                "value": "Cutter"
+            },
+            {
+                "key": "DashCam",
+                "value": "Dash Cam"
+            },
+            {
+                "key": "Digger",
+                "value": "Digger"
+            },
+            {
+                "key": "ElectronicsAudioEquipment",
+                "value": "Electronics/Audio Equipment"
+            },
+            {
+                "key": "EngineTransmission",
+                "value": "Engine/Transmission"
+            },
+            {
+                "key": "Exhaust",
+                "value": "Exhaust"
+            },
+            {
+                "key": "ExteriorTrim",
+                "value": "Exterior Trim"
+            },
+            {
+                "key": "FoodVanNoDeep",
+                "value": "Food Van fit out - no deep fryer"
+            },
+            {
+                "key": "FoodVanWithDeep",
+                "value": "Food Van fit out - with deep fryer"
+            },
+            {
+                "key": "GatesChainsTarpaulins",
+                "value": "Gates, Chains and Tarpaulins"
+            },
+            {
+                "key": "GVMUpgrade",
+                "value": "GVM Upgrade"
+            },
+            {
+                "key": "Hydraulics",
+                "value": "Hydraulics"
+            },
+            {
+                "key": "Immobiliser",
+                "value": "Immobiliser"
+            },
+            {
+                "key": "Interior",
+                "value": "Interior"
+            },
+            {
+                "key": "Lights",
+                "value": "Lights"
+            },
+            {
+                "key": "LPGFuelTank",
+                "value": "LPG/Fuel Tank"
+            },
+            {
+                "key": "Loader",
+                "value": "Loader"
+            },
+            {
+                "key": "Microdotting",
+                "value": "Microdotting"
+            },
+            {
+                "key": "Mobility",
+                "value": "Mobility (ramps / lifts / handles etc)"
+            },
+            {
+                "key": "PaintPaintProtection",
+                "value": "Paint/Paint Protection"
+            },
+            {
+                "key": "PantechBody",
+                "value": "Pantech body"
+            },
+            {
+                "key": "ProtectionBarsRoofRacks",
+                "value": "Protection/Bars/Roof Racks"
+            },
+            {
+                "key": "RacingEquipment",
+                "value": "Racing Equipment"
+            },
+            {
+                "key": "Refrigeration",
+                "value": "Refrigeration"
+            },
+            {
+                "key": "Ripper",
+                "value": "Ripper"
+            },
+            {
+                "key": "RollBarCage",
+                "value": "Roll Bar / Roll Cage"
+            },
+            {
+                "key": "SeatsMats",
+                "value": "Seat covers / Leather Seats / Interior Mats"
+            },
+            {
+                "key": "ServiceTrayTopBodies",
+                "value": "Service / Tray Top bodies"
+            },
+            {
+                "key": "ShelvingBinsDrawers",
+                "value": "Shelving, Bins & Drawers"
+            },
+            {
+                "key": "Slasher",
+                "value": "Slasher"
+            },
+            {
+                "key": "Snorkel",
+                "value": "Snorkel"
+            },
+            {
+                "key": "StereoSystemSpeakers",
+                "value": "Stereo System / Speakers"
+            },
+            {
+                "key": "Suspension",
+                "value": "Suspension"
+            },
+            {
+                "key": "Sweeper",
+                "value": "Sweeper"
+            },
+            {
+                "key": "ToolBox",
+                "value": "Tool Box"
+            },
+            {
+                "key": "TrackingDevice",
+                "value": "Tracking Device"
+            },
+            {
+                "key": "TradeFitOut",
+                "value": "Trade specific fit out"
+            },
+            {
+                "key": "Tray",
+                "value": "Tray"
+            },
+            {
+                "key": "TurboSupercharged",
+                "value": "Turbo/Supercharged"
+            },
+            {
+                "key": "WaterTank",
+                "value": "Water Tank"
+            },
+            {
+                "key": "WheelLockNuts",
+                "value": "Wheel Lock Nuts"
+            },
+            {
+                "key": "WheelsTyres",
+                "value": "Wheels and Tyres"
+            },
+            {
+                "key": "WinchHoist",
+                "value": "Winch or Hoist"
+            },
+            {
+                "key": "WindowTinting",
+                "value": "Window Tinting"
+            },
+            {
+                "key": "Other",
+                "value": "Other"
+            }
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.AccessoriesDetails.*.Type",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Value": {
+        "JsonPath": "Value",
+        "QuestionLabel": "Value",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 23,
+            "DocumentTitle": "Value"
+        },
+        "ControlLabel": "Value",
+        "InputType": "currency",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.AccessoriesDetails.*.Value",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Description_6": {
+        "JsonPath": "Description",
+        "QuestionLabel": "Description",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 24,
+            "DocumentTitle": "Description"
+        },
+        "ControlLabel": "Description",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.AccessoriesDetails.*.Description",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "TotalInsuredValue": {
+        "JsonPath": "TotalInsuredValue",
+        "QuestionLabel": "<b>Total Insured Value:</b> The vehicle Sum Insured includes all modifications, attachments and non-standard accessories.",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 25,
+            "DocumentTitle": "<hr><b>Total Insured Value:</b> The vehicle Sum Insured includes all modifications, attachments and non-standard accessories.<hr>"
+        },
+        "ControlLabel": "Total Insured Amount",
+        "InputType": "note",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "SumInsuredType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Agreed",
+                    "SumInsured"
+                ]
+            },
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "FoodTrailer"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_0"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.TotalInsuredValue",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ExistingHailOrOtherDamage": {
+        "JsonPath": "ExistingHailOrOtherDamage",
+        "QuestionLabel": "Does the vehicle have any rust, hail or other unrepaired damage to the bodywork, paintwork or interior?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 26,
+            "DocumentTitle": "Does the vehicle have any rust, hail or other unrepaired damage to the bodywork, paintwork or interior?"
+        },
+        "ControlLabel": "Hail Or Other Damage",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.ExistingHailOrOtherDamage",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ExistingMechanicalIssues": {
+        "JsonPath": "ExistingMechanicalIssues",
+        "QuestionLabel": "Does the vehicle have any mechanical or other problems which make it unsafe to drive?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 27,
+            "DocumentTitle": "Does the vehicle have any mechanical or other problems which make it unsafe to drive?"
+        },
+        "ControlLabel": "Existing Issues",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.ExistingMechanicalIssues",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "GaragedOvernightType": {
+        "JsonPath": "GaragedOvernightType",
+        "QuestionLabel": "Where is the vehicle garaged overnight ",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 28,
+            "DocumentTitle": "Where is the vehicle garaged overnight "
+        },
+        "ControlLabel": "Garaged Overnight Type",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "Garage",
+                "value": "Garage"
+            },
+            {
+                "key": "Driveway",
+                "value": "Driveway"
+            },
+            {
+                "key": "Carport",
+                "value": "Carport"
+            },
+            {
+                "key": "Street",
+                "value": "Street"
+            },
+            {
+                "key": "Other",
+                "value": "Other"
+            }
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "TrailerDogAirCon",
+                    "TrailerDogNonAirCon",
+                    "FoodTrailer"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "OR",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.GaragedOvernightType",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "WheelClampsLock": {
+        "JsonPath": "WheelClampsLock",
+        "QuestionLabel": "Is the trailer fitted with wheel clamps or a trailer coupling lock overnight? ",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 29,
+            "DocumentTitle": "Is the trailer fitted with wheel clamps or a trailer coupling lock overnight? "
+        },
+        "ControlLabel": "Wheel Clamps Lock",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "GaragedOvernightType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Driveway",
+                    "Carport",
+                    "Street",
+                    "Other"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.WheelClampsLock",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "EpsPanels": {
+        "JsonPath": "EpsPanels",
+        "QuestionLabel": "Is your vehicle built with EPS / Cool room Panels ",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 30,
+            "DocumentTitle": "Is your vehicle built with EPS / Cool room Panels "
+        },
+        "ControlLabel": "EPS Panels",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer"
+                ]
+            },
+            {
+                "QuestionJsonKey": "VehicleUsedFor",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "MobileFoodVendors"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "OR",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.EpsPanels",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ConductDeepWokCooking": {
+        "JsonPath": "ConductDeepWokCooking",
+        "QuestionLabel": "Does the business conduct any of the following",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 31,
+            "DocumentTitle": "Does the business conduct any of the following"
+        },
+        "ControlLabel": "Conduct Deep Wok Cooking",
+        "InputType": "checkbox",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "BenchDeepFry",
+                "value": "Bench Deep Frying",
+                "$ifnot": "None"
+            },
+            {
+                "key": "FixedDeepFatFry",
+                "value": "Fixed Deep Fat Frying",
+                "$ifnot": "None"
+            },
+            {
+                "key": "WokCooking",
+                "value": "Wok Cooking",
+                "$ifnot": "None"
+            },
+            {
+                "key": "CharcoalWoodCooking",
+                "value": "Charcoal or wood cooking/heating",
+                "$ifnot": "None"
+            },
+            {
+                "key": "None",
+                "value": "None of Above"
+            }
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer"
+                ]
+            },
+            {
+                "QuestionJsonKey": "VehicleUsedFor",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "MobileFoodVendors"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "OR",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_7"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": "Please tick all that apply",
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.ConductDeepWokCooking.*",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DeepFryAutoCutOff": {
+        "JsonPath": "DeepFryAutoCutOff",
+        "QuestionLabel": "Are all deep fryers thermostatically controlled and/or fitted with an automatic over-temperature cut out device?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 32,
+            "DocumentTitle": "Are all deep fryers thermostatically controlled and/or fitted with an automatic over-temperature cut out device?"
+        },
+        "ControlLabel": "Deep Fry Auto Cut Off",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ConductDeepWokCooking",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "BenchDeepFry",
+                    "FixedDeepFatFry"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DeepFryAutoCutOff",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DeepFryExhaustClean": {
+        "JsonPath": "DeepFryExhaustClean",
+        "QuestionLabel": "Do all deep fryers have an exhaust extraction system including scheduled cleaning and inspection routine for exhaust, filters, ducting & fans",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 33,
+            "DocumentTitle": "Do all deep fryers have an exhaust extraction system including scheduled cleaning and inspection routine for exhaust, filters, ducting & fans"
+        },
+        "ControlLabel": "Deep Fry Exhaust Clean",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ConductDeepWokCooking",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FixedDeepFatFry"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DeepFryExhaustClean",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "WokCookingCutOffWater": {
+        "JsonPath": "WokCookingCutOffWater",
+        "QuestionLabel": "Does all wok cooking equipment have a flame failure automatic cut off module, exhaust extraction system and its own water cooling and filling system",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 34,
+            "DocumentTitle": "Does all wok cooking equipment have a flame failure automatic cut off module, exhaust extraction system and its own water cooling and filling system"
+        },
+        "ControlLabel": "Wok Cooking Cut Off Water",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ConductDeepWokCooking",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "WokCooking"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.WokCookingCutOffWater",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "CharcoalsProcess": {
+        "JsonPath": "CharcoalsProcess",
+        "QuestionLabel": "Does the business have procedures in place to ensure all charcoals/coals are fully extinguished outside business hours",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 35,
+            "DocumentTitle": "Does the business have procedures in place to ensure all charcoals/coals are fully extinguished outside business hours"
+        },
+        "ControlLabel": "Charcoals Process",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "ConductDeepWokCooking",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "CharcoalWoodCooking"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.CharcoalsProcess",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "FireExtinguisherBlanket": {
+        "JsonPath": "FireExtinguisherBlanket",
+        "QuestionLabel": "Is the vehicle/trailer fitted with both fire extinguisher/s and fire blanket/s",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 36,
+            "DocumentTitle": "Is the vehicle/trailer fitted with both fire extinguisher/s and fire blanket/s"
+        },
+        "ControlLabel": "Fire Extinguisher Blanket",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "FoodTrailer"
+                ]
+            },
+            {
+                "QuestionJsonKey": "VehicleUsedFor",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "MobileFoodVendors"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "OR",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.FireExtinguisherBlanket",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "VehicleSecurity": {
+        "JsonPath": "VehicleSecurity",
+        "QuestionLabel": "How is the vehicle secured when not in use",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 37,
+            "DocumentTitle": "How is the vehicle secured when not in use"
+        },
+        "ControlLabel": "Vehicle Security",
+        "InputType": "dropdown",
+        "DefaultValue": "",
+        "AvailableValue": [
+            {
+                "key": "LockedBuild",
+                "value": "Within a fully locked building"
+            },
+            {
+                "key": "Fenced",
+                "value": "Within a fully fenced/enclosed site"
+            },
+            {
+                "key": "Other",
+                "value": "Other"
+            }
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.VehicleSecurity",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "KeysSecured": {
+        "JsonPath": "KeysSecured",
+        "QuestionLabel": "Are the keys securely stored away from the vehicle when not in use?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 38,
+            "DocumentTitle": "Are the keys securely stored away from the vehicle when not in use?"
+        },
+        "ControlLabel": "Keys Secured",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Forklift",
+                    "Excavator",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.KeysSecured",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "GPSFitted": {
+        "JsonPath": "GPSFitted",
+        "QuestionLabel": "Is the vehicle fitted with a GPS tracking device?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 39,
+            "DocumentTitle": "Is the vehicle fitted with a GPS tracking device?"
+        },
+        "ControlLabel": "GPS Fitted",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Forklift",
+                    "Excavator",
+                    "Mower",
+                    "StumpGrinder",
+                    "OtherMobilePlant"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.GPSFitted",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Excess": {
+        "JsonPath": "Excess",
+        "QuestionLabel": "Basic Excess",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 40,
+            "DocumentTitle": "Basic Excess ",
+            "DisclaimerText": "<p>*Preferred repairer excess rebate of $200 (Comprehensive cover type only - Refer PDS)</p><p>In addition to the Basic Excess, the following excesses may apply for a given claim;</p><ul><li>Age excess of $850 where the driver of the vehicle is under the age of 21 at the time of the claim</li><li>Age excess of $750 where the driver of the vehicle is between the age of 21 and 25 at the time of the claim</li><li>Inexperienced driver excess of $750 where the driver of the vehicle is aged over 25 but has less than 2 years driving experience</li><li>Hydraulic lifting or tipping excess of $1,000</li><li>Convertible roof or open top excess of $500</li></ul><p>If you do not provide us with the details of the driver of your vehicle involved in the accident within a reasonable&nbsp;period of time (and in any event no later than 30 days)&nbsp;following the accident, the excess will be calculated as:</p><ul><li>the basic excess; and</li><li>any hydraulic lifting or tipping mechanism or convertible roof or open top excesses which may&nbsp;be applicable to your claim; and</li><li>the higher of:<ul><li>the age excess; or</li><li>the inexperienced driver excess.</li></ul></li></ul><p>See the PDS for the standard policy terms, conditions, limits and exclusions.</p>"
+        },
+        "ControlLabel": "Excess",
+        "InputType": "currency-v1",
+        "DefaultValue": {
+            "Against": "",
+            "Values": [
+                {
+                    "Key": "VehicleClass",
+                    "Relationship": "sibling",
+                    "Default": "800",
+                    "Value": [
+                        {
+                            "key": "SedanUteVanGoodsCarrying",
+                            "value": {
+                                "operation": "flat",
+                                "val": "900"
+                            }
+                        },
+                        {
+                            "key": "FoodTrailer",
+                            "value": {
+                                "operation": "flat",
+                                "val": "1000"
+                            }
+                        },
+                        {
+                            "key": "TrailerBox",
+                            "value": {
+                                "operation": "flat",
+                                "val": "500"
+                            }
+                        },
+                        {
+                            "key": "TrailerOther",
+                            "value": {
+                                "operation": "flat",
+                                "val": "500"
+                            }
+                        },
+                        {
+                            "key": "TrailerDogAirCon",
+                            "value": {
+                                "operation": "flat",
+                                "val": "500"
+                            }
+                        },
+                        {
+                            "key": "TrailerDogNonAirCon",
+                            "value": {
+                                "operation": "flat",
+                                "val": "500"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Key": "VehicleUsedFor",
+                    "Relationship": "sibling",
+                    "Default": null,
+                    "Value": [
+                        {
+                            "key": "CourtesyCar",
+                            "value": {
+                                "operation": "flat",
+                                "val": "1000"
+                            }
+                        },
+                        {
+                            "key": "MobileFoodVendors",
+                            "value": {
+                                "operation": "flat",
+                                "val": "1000"
+                            }
+                        },
+                        {
+                            "key": "CourierDeliveryServices",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Key": "BusinessDetails.PrimaryBusinessActivity",
+                    "Relationship": "root",
+                    "Default": null,
+                    "Value": [
+                        {
+                            "key": "4610100",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "4610150",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "4610200",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "4610250",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "4610450",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "4610500",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "5102050",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "5102100",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "5102150",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        },
+                        {
+                            "key": "5292050",
+                            "value": {
+                                "operation": "flat",
+                                "val": "2500"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_10"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "Computed",
+                "Value": "",
+                "ErrorMessage": "Minimum excess is ##",
+                "Computation": {
+                    "Against": "VehiclesDetail.defaultExcess",
+                    "Operator": "gt",
+                    "Of": [
+                        {
+                            "DependentQuestion": "VehicleClass",
+                            "Default": "0.005",
+                            "Values": [
+                                {
+                                    "key": "SedanUteVanGoodsCarrying",
+                                    "value": {
+                                        "operation": "multi",
+                                        "val": "1"
+                                    }
+                                },
+                                {
+                                    "key": "FoodTrailer",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "1000"
+                                    }
+                                },
+                                {
+                                    "key": "TrailerBox",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "300"
+                                    }
+                                },
+                                {
+                                    "key": "TrailerOther",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "TrailerDogAirCon",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "TrailerDogNonAirCon",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "Forklift",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "Excavator",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "Mower",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "StumpGrinder",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                },
+                                {
+                                    "key": "OtherMobilePlant",
+                                    "value": {
+                                        "operation": "flat",
+                                        "val": "500"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "Default": "500"
+                }
+            }
+        ],
+        "HintText": "See 'i' for more information about minimum excesses.",
+        "HelpText": "<p>Please note that our minimum excesses are as follows. If needed, please enter a value equal to or greater than the applicable minimum. If a value is entered below the required minimum the quote will be declined.</p><ul class='text-left'><li>Sedan, station wagon, 4WD, utility, van or other goods carrying vehicle - $900 <br/>(higher minimums apply to vehicles over $100K. This min excess value will be auto displayed)</li><li>Food/Drinks Trailer - $1000</li><li>Trailer - Box / Boat / Horse / Luggage - $500</li><li>Dog Washing-Grooming Trailer - $500</li><li>Trailer - Other - $500</li><li>Mobile Plant - $800</li><li>Vehicle used for Food Truck / Trailer / Van - $1000</li><li>Vehicle used for Courier or delivery/removalist services or Courier/Delivery/Road Freight occupation - $2500.</li></ul>",
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.Excess",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "ExcessDisclaimer": {
+        "JsonPath": "ExcessDisclaimer",
+        "QuestionLabel": "<b>Note:</b> Less than <b>$2,500</b> Excess for this business activity will result in a decline.",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 41,
+            "DocumentTitle": "<b>Note:</b> Less than <b>$2,500</b> Excess for this business activity will result in a decline."
+        },
+        "ControlLabel": "",
+        "InputType": "note",
+        "DefaultValue": null,
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "BusinessDetails.PrimaryBusinessActivity",
+                "Relationship": "root",
+                "Parser": "anzsic",
+                "SourceType": "ANZSICDetails",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "4610100",
+                    "4610150",
+                    "4610200",
+                    "4610250",
+                    "4610450",
+                    "4610500",
+                    "5102050",
+                    "5102100",
+                    "5102150",
+                    "5292050"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "ControlClassTags": "form-control width340 minheight37",
+                "QuestionLabelClassTags": "col-lg-12 label-control pt-0 font14 text-center",
+                "ControlLabelClassTags": "col-lg-12 label-control",
+                "ControlParentClass": "",
+                "Type": "info"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [],
+        "HintText": null,
+        "DataType": "",
+        "DataTypePath": "",
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.ExcessDisclaimer",
+        "DependentQuestion": []
+    },
+    "MainDriverYearOfBirth": {
+        "JsonPath": "MainDriverYearOfBirth",
+        "QuestionLabel": "Main driver year of birth",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 42,
+            "DocumentTitle": "Main driver year of birth"
+        },
+        "ControlLabel": "Year Of Birth",
+        "InputType": "number",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "min",
+                "Value": "1900",
+                "ErrorMessage": "Invalid year"
+            },
+            {
+                "ValidationType": "max",
+                "Value": "2010",
+                "ErrorMessage": "Invalid year"
+            }
+        ],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.MainDriverYearOfBirth",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriversUnder25": {
+        "JsonPath": "DriversUnder25",
+        "QuestionLabel": "Are there any drivers under 25 years old?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 43,
+            "DocumentTitle": "Are there any drivers under 25 years old?"
+        },
+        "ControlLabel": "Drivers Under 25",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "DriversUnder25Details": {
+        "JsonPath": "DriversUnder25Details",
+        "QuestionLabel": "Drivers Under 25 Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 44,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "DriversUnder25",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_3"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25Details",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": "FirstName",
+        "Metadata": "Parties.Name"
+    },
+    "FirstName": {
+        "JsonPath": "FirstName",
+        "QuestionLabel": "First Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 45,
+            "DocumentTitle": "First Name"
+        },
+        "ControlLabel": "Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25Details.*.FirstName",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "Surname": {
+        "JsonPath": "Surname",
+        "QuestionLabel": "Surname",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 46,
+            "DocumentTitle": "Surname"
+        },
+        "ControlLabel": "Surname",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25Details.*.Surname",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "YearOfBirth": {
+        "JsonPath": "YearOfBirth",
+        "QuestionLabel": "Year of Birth",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 47,
+            "DocumentTitle": "Year of Birth"
+        },
+        "ControlLabel": "Under25 Year of Birth",
+        "InputType": "number",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "min",
+                "Value": "1998",
+                "ErrorMessage": "Please enter 1998 or later"
+            },
+            {
+                "ValidationType": "max",
+                "Value": "2007",
+                "ErrorMessage": "Please enter 2007 or earlier"
+            }
+        ],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25Details.*.YearOfBirth",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "AgeLicenceObtained": {
+        "JsonPath": "AgeLicenceObtained",
+        "QuestionLabel": "Age licence obtained",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 48,
+            "DocumentTitle": "Age licence obtained"
+        },
+        "ControlLabel": "Licence Age",
+        "InputType": "number",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_18"
+            }
+        ],
+        "DataSource": "",
+        "Validation": [
+            {
+                "ValidationType": "Required",
+                "Value": "true",
+                "ErrorMessage": "This field is required"
+            },
+            {
+                "ValidationType": "min",
+                "Value": "16",
+                "ErrorMessage": "Invalid age"
+            },
+            {
+                "ValidationType": "max",
+                "Value": "99",
+                "ErrorMessage": "Invalid age"
+            }
+        ],
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.DriversUnder25Details.*.AgeLicenceObtained",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "HireCarAfterAccident": {
+        "JsonPath": "HireCarAfterAccident",
+        "QuestionLabel": "Does the insured wish to include the Hire Car Extension?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 49,
+            "DocumentTitle": "Does the insured wish to include the Hire Car Extension?"
+        },
+        "ControlLabel": "Hire Car After Accident",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.HireCarAfterAccident",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "WindscreenExtension": {
+        "JsonPath": "WindscreenExtension",
+        "QuestionLabel": "Does the insured wish to include the Windscreen Excess Extension?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 50,
+            "DocumentTitle": "Does the insured wish to include the Windscreen Excess Extension?"
+        },
+        "ControlLabel": "Windscreen Extension",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.WindscreenExtension",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "RoadsideAssist": {
+        "JsonPath": "RoadsideAssist",
+        "QuestionLabel": "Does the insured wish to include the Roadside Assist Optional Benefit?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 51,
+            "DocumentTitle": "Does the insured wish to include the Roadside Assist Optional Benefit?"
+        },
+        "ControlLabel": "Roadside Assist",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "VehicleClass",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "SedanUteVanGoodsCarrying"
+                ]
+            },
+            {
+                "QuestionJsonKey": "CoverType",
+                "Relationship": "sibling",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "Comprehensive",
+                    "ThirdPartyFireTheft"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "AND",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.RoadsideAssist",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "InterestedParties": {
+        "JsonPath": "InterestedParties",
+        "QuestionLabel": "Do you wish to note any interested parties?",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 52,
+            "DocumentTitle": "Do you wish to note any interested parties?"
+        },
+        "ControlLabel": "Interested Parties",
+        "InputType": "radio",
+        "DefaultValue": "",
+        "AvailableValue": [
+            "YES",
+            "NO"
+        ],
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_12"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.InterestedParties",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    },
+    "InterestedPartiesDetails": {
+        "JsonPath": "InterestedPartiesDetails",
+        "QuestionLabel": "Interested Parties Details",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 53,
+            "DocumentTitle": ""
+        },
+        "ControlLabel": "",
+        "InputType": "table",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": [
+            {
+                "QuestionJsonKey": "InterestedParties",
+                "Relationship": "parent",
+                "UIOperation": "show",
+                "MatchingCondition": [
+                    "YES"
+                ]
+            }
+        ],
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_4"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.InterestedPartiesDetails",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": "Name",
+        "Metadata": "Parties.Name"
+    },
+    "Name": {
+        "JsonPath": "Name",
+        "QuestionLabel": "Name",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP",
+                "COC"
+            ],
+            "DocOrder": 54,
+            "DocumentTitle": "Name"
+        },
+        "ControlLabel": "Interested Parties Name",
+        "InputType": "text",
+        "DefaultValue": "",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "referencing_fields.json#/AdditionalProperties_6"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.CommercialVehiclesPolicy.Vehicles.*.InterestedPartiesDetails.*.Name",
+        "DataType": "InterestedParty",
+        "DataTypePath": "UnderwritingCriteria.InterestedParties.Name",
+        "ArrayTitle": ""
+    },
+    "Commission": {
+        "JsonPath": "Commission",
+        "QuestionLabel": "Commission Amount",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 1,
+            "DocumentTitle": "Commission Amount"
+        },
+        "ControlLabel": "Commission",
+        "InputType": "decimal",
+        "DefaultValue": "DEFAULT_COMMISSION",
+        "AvailableValue": "",
+        "Prerequisite": "",
+        "PrerequisiteJoiner": "",
+        "AdditionalProperties": [
+            {
+                "$ref": "common_referencing_fields.json#/AdditionalProperties_Commission_DisableIfBound"
+            }
+        ],
+        "DataSource": "",
+        "Validation": {
+            "$ref": "common_referencing_fields.json#/Validation_Commission"
+        },
+        "HintText": null,
+        "HelpText": null,
+        "ResponseXPath": "$.Response.Commission.Commission",
+        "DataType": "",
+        "DataTypePath": "",
+        "ArrayTitle": ""
+    }
+}
