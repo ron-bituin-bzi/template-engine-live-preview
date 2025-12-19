@@ -727,29 +727,52 @@
   }
 
   const generateMappingJson = () => {
-    const sectionMap = {}
     const sectionOrder = mappingData.value?.Mapping?.map(m => m.Section) || []
     
+    // Helper function to build question hierarchy
+    const buildQuestionHierarchy = (parentJsonPath, sectionQuestions) => {
+      // Find all direct children of this parent
+      const children = sectionQuestions.filter(q => q.dependentOn === parentJsonPath)
+      
+      return children.map(child => ({
+        Question: child.jsonPath,
+        DependentQuestion: buildQuestionHierarchy(child.jsonPath, sectionQuestions)
+      }))
+    }
+    
     // Group questions by section
+    const sectionMap = {}
     questions.value.forEach(q => {
       if (!sectionMap[q.section]) {
         sectionMap[q.section] = []
       }
-      sectionMap[q.section].push({
-        Question: q.jsonPath,
-        DependentQuestion: []
-      })
+      sectionMap[q.section].push(q)
     })
 
-    // Convert to mapping array, preserving section order from mapping if available
+    // Build hierarchical structure for each section
+    const mapping = []
     const allSections = [...new Set([...sectionOrder, ...Object.keys(sectionMap)])]
-    const mapping = allSections
+    
+    allSections
       .filter(section => sectionMap[section]) // Only include sections with questions
-      .map(section => ({
-        Section: section,
-        Questions: sectionMap[section],
-        DependentSection: []
-      }))
+      .forEach(section => {
+        const sectionQuestions = sectionMap[section]
+        
+        // Find top-level questions (those without a parent)
+        const topLevelQuestions = sectionQuestions.filter(q => !q.dependentOn)
+        
+        // Build hierarchy for each top-level question
+        const questionsWithHierarchy = topLevelQuestions.map(q => ({
+          Question: q.jsonPath,
+          DependentQuestion: buildQuestionHierarchy(q.jsonPath, sectionQuestions)
+        }))
+        
+        mapping.push({
+          Section: section,
+          Questions: questionsWithHierarchy,
+          DependentSection: []
+        })
+      })
 
     return { Mapping: mapping }
   }
