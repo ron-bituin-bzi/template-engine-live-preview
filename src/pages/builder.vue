@@ -290,17 +290,17 @@
 
       <!-- Questions List -->
       <v-col cols="12" md="6">
-        <v-card elevation="2" class="pa-4">
+        <v-card elevation="2" class="pa-4 questions-card">
           <v-card-title class="text-h6 pa-0 mb-4">
             Questions ({{ questions.length }})
           </v-card-title>
 
-          <v-list v-if="questions.length > 0" class="mb-4">
+          <v-list v-if="questions.length > 0" class="mb-4 questions-list">
             <v-list-item
               v-for="(question, index) in questions"
               :key="index"
-              class="px-0"
-              :class="{ 'bg-primary-lighten-5': editingIndex === index }"
+              class="px-0 question-list-item"
+              :class="{ 'question-editing': editingIndex === index }"
               @click="selectQuestion(index)"
               style="cursor: pointer;"
             >
@@ -722,6 +722,53 @@
 
   :deep(.v-theme--dark) .code-preview {
     background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .questions-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .questions-list {
+    max-height: calc(100vh - 400px);
+    overflow-y: auto;
+    overflow-x: visible;
+    padding: 4px;
+  }
+
+  .question-list-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 4px;
+    transform-origin: center;
+  }
+
+  .question-list-item:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    width: calc(100% - 4%);
+    margin-left: 2%;
+  }
+
+  .question-editing {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background-color: rgba(233, 30, 99, 0.08) !important;
+    border: 2px solid #e91e63;
+    z-index: 10;
+    width: calc(100% - 4%);
+    margin-left: 2%;
+  }
+
+  :deep(.v-theme--dark) .question-editing {
+    background-color: rgba(233, 30, 99, 0.15) !important;
+    box-shadow: 0 6px 16px rgba(233, 30, 99, 0.3);
+  }
+
+  .question-editing:hover {
+    transform: scale(1.02) translateY(-2px);
   }
 
   .form-preview-container {
