@@ -49,13 +49,47 @@
               class="mb-3"
             />
 
-            <v-select
-              v-model="newQuestion.inputType"
-              :items="inputTypes"
-              label="Input Type"
-              density="comfortable"
-              class="mb-3"
-            />
+            <div class="mb-3">
+              <label class="text-subtitle-2 mb-2 d-block">Input Type</label>
+              <v-radio-group v-model="newQuestion.inputType">
+                <v-row dense>
+                  <v-col
+                    v-for="type in inputTypes"
+                    :key="type"
+                    cols="4"
+                  >
+                    <v-radio
+                      :value="type"
+                      density="compact"
+                    >
+                      <template v-slot:label>
+                        <div class="d-flex align-center gap-2">
+                          <v-icon size="small">
+                            {{
+                              {
+                                'text': 'mdi-form-textbox',
+                                'typeahead': 'mdi-card-search-outline',
+                                'number': 'mdi-numeric',
+                                'decimal': 'mdi-decimal',
+                                'dropdown': 'mdi-form-select',
+                                'address': 'mdi-map-marker',
+                                'radio': 'mdi-radiobox-marked',
+                                'date': 'mdi-calendar-range',
+                                'table': 'mdi-table',
+                                'hidden': 'mdi-eye-off',
+                                'textarea': 'mdi-form-textarea',
+                                'checkbox': 'mdi-checkbox-marked'
+                              }[type] || 'mdi-help-circle-outline'
+                            }}
+                          </v-icon>
+                          <span>{{ type.charAt(0).toUpperCase() + type.slice(1) }}</span>
+                        </div>
+                      </template>
+                    </v-radio>
+                  </v-col>
+                </v-row>
+              </v-radio-group>
+            </div>
 
             <v-text-field
               v-model="newQuestion.section"
@@ -63,8 +97,50 @@
               hint="e.g., BusinessDetails, UnderwritingCriteria"
               persistent-hint
               density="comfortable"
-              class="mb-4"
+              class="mb-3"
             />
+
+            <v-text-field
+              v-model="newQuestion.documentTitle"
+              label="Document Title"
+              hint="Title shown in document output"
+              persistent-hint
+              density="comfortable"
+              class="mb-3"
+            />
+
+            <div class="mb-4">
+              <label class="text-subtitle-2 mb-2 d-block">Document Visibility</label>
+              <v-row dense>
+                <v-col cols="4">
+                  <v-checkbox
+                    v-model="newQuestion.docVisible"
+                    label="SCD"
+                    value="SCD"
+                    density="compact"
+                    hide-details
+                  />
+                </v-col>
+                <v-col cols="4">
+                  <v-checkbox
+                    v-model="newQuestion.docVisible"
+                    label="PRP"
+                    value="PRP"
+                    density="compact"
+                    hide-details
+                  />
+                </v-col>
+                <v-col cols="4">
+                  <v-checkbox
+                    v-model="newQuestion.docVisible"
+                    label="COC"
+                    value="COC"
+                    density="compact"
+                    hide-details
+                  />
+                </v-col>
+              </v-row>
+            </div>
 
             <div class="d-flex">
               <v-btn
@@ -85,6 +161,130 @@
               </v-btn>
             </div>
           </v-form>
+
+          <!-- Live Form Preview -->
+          <v-divider class="my-6" />
+          <div class="text-h6 mb-4">Live Preview</div>
+          <div class="form-preview-container">
+            <div class="preview-question-row">
+              <label class="preview-label">
+                {{ newQuestion.questionLabel || 'Question Label' }}
+                <span class="required">*</span>
+              </label>
+              
+              <div class="preview-input-container">
+                <!-- Text Input -->
+                <input
+                  v-if="newQuestion.inputType === 'text'"
+                  type="text"
+                  class="preview-input"
+                  :placeholder="''"
+                />
+                
+                <!-- Number Input -->
+                <input
+                  v-else-if="newQuestion.inputType === 'number'"
+                  type="number"
+                  class="preview-input"
+                  placeholder=""
+                />
+
+                <!-- Decimal Input -->
+                <input
+                  v-else-if="newQuestion.inputType === 'decimal'"
+                  type="number"
+                  step="0.01"
+                  class="preview-input"
+                  placeholder=""
+                />
+                
+                <!-- Dropdown -->
+                <select
+                  v-else-if="newQuestion.inputType === 'dropdown'"
+                  class="preview-input"
+                >
+                  <option value="">Select an option...</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+
+                <!-- Address -->
+                <input
+                  v-else-if="newQuestion.inputType === 'address'"
+                  type="text"
+                  class="preview-input"
+                  placeholder=""
+                />
+                
+                <!-- Radio Buttons -->
+                <div v-else-if="newQuestion.inputType === 'radio'" class="preview-radio-buttons">
+                  <button type="button" class="radio-button">YES</button>
+                  <button type="button" class="radio-button">NO</button>
+                </div>
+                
+                <!-- Checkbox -->
+                <div v-else-if="newQuestion.inputType === 'checkbox'" class="preview-checkbox-group">
+                  <label class="preview-checkbox-item">
+                    <input type="checkbox" />
+                    <span>Option 1</span>
+                  </label>
+                  <label class="preview-checkbox-item">
+                    <input type="checkbox" />
+                    <span>Option 2</span>
+                  </label>
+                </div>
+                
+                <!-- Date -->
+                <input
+                  v-else-if="newQuestion.inputType === 'date'"
+                  type="date"
+                  class="preview-input"
+                />
+                
+                <!-- Textarea -->
+                <textarea
+                  v-else-if="newQuestion.inputType === 'textarea'"
+                  class="preview-input preview-textarea"
+                  rows="3"
+                  :placeholder="''"
+                ></textarea>
+
+                <!-- Typeahead -->
+                <input
+                  v-else-if="newQuestion.inputType === 'typeahead'"
+                  type="text"
+                  class="preview-input"
+                  placeholder="Start typing to search..."
+                />
+
+                <!-- Table -->
+                <div v-else-if="newQuestion.inputType === 'table'" class="preview-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="text" class="table-input" /></td>
+                        <td><input type="text" class="table-input" /></td>
+                        <td><input type="text" class="table-input" /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Hidden -->
+                <div v-else-if="newQuestion.inputType === 'hidden'" class="hidden-preview">
+                  <em>Hidden field (not visible to user)</em>
+                </div>
+              </div>
+            </div>
+          </div>
         </v-card>
       </v-col>
 
@@ -110,10 +310,15 @@
                     editingIndex === index ? 'mdi-pencil' : (
                       {
                         'text': 'mdi-form-textbox',
+                        'typeahead': 'mdi-card-search-outline',
                         'number': 'mdi-numeric',
+                        'decimal': 'mdi-decimal',
                         'dropdown': 'mdi-form-select',
+                        'address': 'mdi-map-marker',
                         'radio': 'mdi-radiobox-marked',
                         'date': 'mdi-calendar-range',
+                        'table': 'mdi-table',
+                        'hidden': 'mdi-eye-off',
                         'textarea': 'mdi-form-textarea',
                         'checkbox': 'mdi-checkbox-marked'
                       }[question.inputType] || 'mdi-help-circle-outline'
@@ -235,14 +440,16 @@
 
   const route = useRoute()
 
-  const inputTypes = ['text', 'number', 'dropdown', 'radio', 'checkbox', 'date', 'textarea']
+  const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden']
 
   const newQuestion = ref({
     jsonPath: '',
     questionLabel: '',
     controlLabel: '',
     inputType: 'text',
-    section: 'BusinessDetails'
+    section: 'BusinessDetails',
+    documentTitle: '',
+    docVisible: []
   })
 
   const questions = ref([])
@@ -266,7 +473,55 @@
     if (route.query.mode === 'edit') {
       uploadDialog.value = true
     }
+
+    // Listen for debug toggle
+    window.addEventListener('debug-toggle', (e) => {
+      if (e.detail) {
+        loadSampleQuestions()
+      } else {
+        questions.value = []
+        resetForm()
+      }
+    })
   })
+
+  const loadSampleQuestions = async () => {
+    try {
+      // Dynamically import the sample JSON files
+      const questionsData = await import('@/assets/sample_product/questions.json')
+      const mappingData = await import('@/assets/sample_product/mapping.json')
+
+      const importedQuestions = []
+      
+      // Create a map of question to section from mapping
+      const questionSectionMap = {}
+      mappingData.default.Mapping?.forEach(sectionObj => {
+        sectionObj.Questions?.forEach(q => {
+          questionSectionMap[q.Question] = sectionObj.Section
+        })
+      })
+      
+      // Parse questions.json
+      Object.keys(questionsData.default).forEach(key => {
+        const q = questionsData.default[key]
+        importedQuestions.push({
+          jsonPath: q.JsonPath,
+          questionLabel: q.QuestionLabel,
+          controlLabel: q.ControlLabel,
+          inputType: q.InputType,
+          section: questionSectionMap[key] || 'BusinessDetails',
+          documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
+          docVisible: q.Document?.DocVisible || []
+        })
+      })
+      
+      questions.value = importedQuestions
+      console.log('Debug mode: Loaded sample questions')
+    } catch (error) {
+      console.error('Failed to load sample questions:', error)
+      uploadError.value = `Failed to load sample questions: ${error.message}`
+    }
+  }
 
   const addQuestion = () => {
     if (!newQuestion.value.jsonPath || !newQuestion.value.questionLabel) {
@@ -302,7 +557,9 @@
       questionLabel: '',
       controlLabel: '',
       inputType: 'text',
-      section: 'BusinessDetails'
+      section: 'BusinessDetails',
+      documentTitle: '',
+      docVisible: []
     }
   }
 
@@ -323,9 +580,9 @@
         JsonPath: q.jsonPath,
         QuestionLabel: q.questionLabel,
         Document: {
-          DocVisible: ["SCD", "PRP", "COC"],
+          DocVisible: q.docVisible && q.docVisible.length > 0 ? q.docVisible : ["SCD", "PRP", "COC"],
           DocOrder: Object.keys(questionsObj).length + 1,
-          DocumentTitle: q.questionLabel
+          DocumentTitle: q.documentTitle || q.questionLabel
         },
         ControlLabel: q.controlLabel || q.questionLabel,
         InputType: q.inputType,
@@ -423,7 +680,9 @@
           questionLabel: q.QuestionLabel,
           controlLabel: q.ControlLabel,
           inputType: q.InputType,
-          section: questionSectionMap[key] || 'BusinessDetails'
+          section: questionSectionMap[key] || 'BusinessDetails',
+          documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
+          docVisible: q.Document?.DocVisible || []
         })
       })
       
@@ -463,5 +722,176 @@
 
   :deep(.v-theme--dark) .code-preview {
     background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .form-preview-container {
+    padding: 24px;
+    background-color: white;
+    border: 2px solid #e91e63;
+    border-radius: 8px;
+    min-height: 120px;
+  }
+
+  :deep(.v-theme--dark) .form-preview-container {
+    background-color: #1e1e1e;
+  }
+
+  .preview-question-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .preview-label {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    padding-right: 16px;
+  }
+
+  .required {
+    color: #e91e63;
+    font-weight: bold;
+    margin-left: 4px;
+  }
+
+  .preview-input-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .preview-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  :deep(.v-theme--dark) .preview-input {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+
+  .preview-input:focus {
+    outline: none;
+    border-color: #666;
+  }
+
+  .preview-textarea {
+    resize: vertical;
+  }
+
+  .preview-radio-buttons {
+    display: flex;
+    gap: 0;
+  }
+
+  .radio-button {
+    padding: 8px 32px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .radio-button:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+
+  .radio-button:last-child {
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+  }
+
+  .radio-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .radio-button:active,
+  .radio-button.active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  :deep(.v-theme--dark) .radio-button {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+
+  :deep(.v-theme--dark) .radio-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .preview-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .preview-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .preview-checkbox-item input[type="checkbox"] {
+    cursor: pointer;
+  }
+
+  .preview-table {
+    width: 100%;
+  }
+
+  .preview-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .preview-table th,
+  .preview-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .preview-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+  }
+
+  :deep(.v-theme--dark) .preview-table th {
+    background-color: #2d2d2d;
+  }
+
+  :deep(.v-theme--dark) .preview-table th,
+  :deep(.v-theme--dark) .preview-table td {
+    border-color: #555;
+  }
+
+  .table-input {
+    width: 100%;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 14px;
+  }
+
+  :deep(.v-theme--dark) .table-input {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+
+  .hidden-preview {
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.6;
   }
 </style>
