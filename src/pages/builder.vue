@@ -330,34 +330,53 @@
                   :key="index"
                   class="px-0 question-list-item"
                   :class="{ 'question-editing': editingIndex === question.originalIndex }"
+                  :style="{ marginLeft: `${question.depth * 48}px` }"
                   @click="selectQuestion(question.originalIndex)"
                   style="cursor: pointer;"
                 >
               <template v-slot:prepend>
-                <v-icon :color="editingIndex === index ? 'error' : 'default'">
-                  {{
-                    editingIndex === index ? 'mdi-pencil' : (
-                      {
-                        'text': 'mdi-form-textbox',
-                        'typeahead': 'mdi-card-search-outline',
-                        'number': 'mdi-numeric',
-                        'decimal': 'mdi-decimal',
-                        'dropdown': 'mdi-form-select',
-                        'address': 'mdi-map-marker',
-                        'radio': 'mdi-radiobox-marked',
-                        'date': 'mdi-calendar-range',
-                        'table': 'mdi-table',
-                        'hidden': 'mdi-eye-off',
-                        'textarea': 'mdi-form-textarea',
-                        'checkbox': 'mdi-checkbox-marked'
-                      }[question.inputType] || 'mdi-help-circle-outline'
-                    )
-                  }}
-                </v-icon>
+                <div class="d-flex align-center">
+                  <v-icon 
+                    v-if="question.hasChildren" 
+                    size="small" 
+                    class="mr-1"
+                    :color="editingIndex === question.originalIndex ? 'primary' : 'default'"
+                  >
+                    mdi-subdirectory-arrow-right
+                  </v-icon>
+                  <v-icon :color="editingIndex === question.originalIndex ? 'error' : 'default'">
+                    {{
+                      editingIndex === question.originalIndex ? 'mdi-pencil' : (
+                        {
+                          'text': 'mdi-form-textbox',
+                          'typeahead': 'mdi-card-search-outline',
+                          'number': 'mdi-numeric',
+                          'decimal': 'mdi-decimal',
+                          'dropdown': 'mdi-form-select',
+                          'address': 'mdi-map-marker',
+                          'radio': 'mdi-radiobox-marked',
+                          'date': 'mdi-calendar-range',
+                          'table': 'mdi-table',
+                          'hidden': 'mdi-eye-off',
+                          'textarea': 'mdi-form-textarea',
+                          'checkbox': 'mdi-checkbox-marked'
+                        }[question.inputType] || 'mdi-help-circle-outline'
+                      )
+                    }}
+                  </v-icon>
+                </div>
               </template>
-              <v-list-item-title>{{ question.questionLabel }}</v-list-item-title>
+              <v-list-item-title>
+                {{ question.questionLabel }}
+                <v-chip v-if="question.depth > 0" size="x-small" class="ml-2" variant="outlined">
+                  Level {{ question.depth }}
+                </v-chip>
+              </v-list-item-title>
               <v-list-item-subtitle>
                 {{ question.jsonPath }} • {{ question.inputType }}
+                <span v-if="question.dependentOn" class="text-caption">
+                  → child of {{ question.dependentOn }}
+                </span>
               </v-list-item-subtitle>
               <template v-slot:append>
                 <v-btn
@@ -515,9 +534,29 @@
     return sections.length > 0 ? sections : ['BusinessDetails']
   })
 
+  const getQuestionDepth = (question) => {
+    let depth = 0
+    let current = question
+    while (current.dependentOn) {
+      depth++
+      current = questions.value.find(q => q.jsonPath === current.dependentOn)
+      if (!current) break
+    }
+    return depth
+  }
+
+  const hasChildren = (jsonPath) => {
+    return questions.value.some(q => q.dependentOn === jsonPath)
+  }
+
   const getQuestionsBySection = (section) => {
     return questions.value
-      .map((q, index) => ({ ...q, originalIndex: index }))
+      .map((q, index) => ({ 
+        ...q, 
+        originalIndex: index,
+        depth: getQuestionDepth(q),
+        hasChildren: hasChildren(q.jsonPath)
+      }))
       .filter(q => q.section === section)
   }
 
@@ -851,21 +890,20 @@
   }
 
   .question-list-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-2px) translateX(4%);
     z-index: 1;
     width: calc(100% - 4%);
     margin-left: 2%;
   }
 
   .question-editing {
-    transform: scale(1.05) translateY(-2px);
+    transform: scale(1.05) translateY(-2px) translateX(4%);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     background-color: rgba(233, 30, 99, 0.08) !important;
     border: 2px solid #e91e63;
     /* border: 2px solid #e91e63; */
     z-index: 10;
-    width: calc(100% - 4%);
-    margin-left: 2%;
+    width: calc(100% - 8%);
   }
 
   :deep(.v-theme--dark) .question-editing {
@@ -874,7 +912,7 @@
   }
 
   .question-editing:hover {
-    transform: scale(1.02) translateY(-2px);
+    transform: scale(1.05) translateY(-2px) translateX(4%);
   }
 
   .form-preview-container {
