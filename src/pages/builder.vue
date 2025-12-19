@@ -100,6 +100,19 @@
               class="mb-3"
             />
 
+            <v-autocomplete
+              v-model="newQuestion.dependentOn"
+              :items="availableParentQuestions"
+              item-title="label"
+              item-value="value"
+              label="Dependent On (Parent Question)"
+              hint="Select if this is a sub-question"
+              persistent-hint
+              density="comfortable"
+              clearable
+              class="mb-3"
+            />
+
             <v-text-field
               v-model="newQuestion.documentTitle"
               label="Document Title"
@@ -295,15 +308,31 @@
             Questions ({{ questions.length }})
           </v-card-title>
 
-          <v-list v-if="questions.length > 0" class="mb-4 questions-list">
-            <v-list-item
-              v-for="(question, index) in questions"
-              :key="index"
-              class="px-0 question-list-item"
-              :class="{ 'question-editing': editingIndex === index }"
-              @click="selectQuestion(index)"
-              style="cursor: pointer;"
+          <v-tabs v-if="questions.length > 0" v-model="selectedSectionTab" class="mb-3">
+            <v-tab
+              v-for="section in uniqueSections"
+              :key="section"
+              :value="section"
             >
+              {{ section }} ({{ getQuestionsBySection(section).length }})
+            </v-tab>
+          </v-tabs>
+
+          <v-window v-if="questions.length > 0" v-model="selectedSectionTab">
+            <v-window-item
+              v-for="section in uniqueSections"
+              :key="section"
+              :value="section"
+            >
+              <v-list class="mb-4 questions-list">
+                <v-list-item
+                  v-for="(question, index) in getQuestionsBySection(section)"
+                  :key="index"
+                  class="px-0 question-list-item"
+                  :class="{ 'question-editing': editingIndex === question.originalIndex }"
+                  @click="selectQuestion(question.originalIndex)"
+                  style="cursor: pointer;"
+                >
               <template v-slot:prepend>
                 <v-icon :color="editingIndex === index ? 'error' : 'default'">
                   {{
@@ -328,18 +357,20 @@
               </template>
               <v-list-item-title>{{ question.questionLabel }}</v-list-item-title>
               <v-list-item-subtitle>
-                {{ question.jsonPath }} • {{ question.inputType }} • Section: {{ question.section }}
+                {{ question.jsonPath }} • {{ question.inputType }}
               </v-list-item-subtitle>
               <template v-slot:append>
                 <v-btn
                   icon="mdi-delete"
                   size="small"
                   variant="text"
-                  @click.stop="removeQuestion(index)"
+                  @click.stop="removeQuestion(question.originalIndex)"
                 />
               </template>
-            </v-list-item>
-          </v-list>
+                </v-list-item>
+              </v-list>
+            </v-window-item>
+          </v-window>
 
           <v-alert v-else type="info" variant="tonal">
             No questions added yet. Add your first question using the form.
@@ -435,7 +466,7 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue'
+  import { ref, computed, onMounted } from 'vue'
   import { useRoute } from 'vue-router'
 
   const route = useRoute()
@@ -449,16 +480,46 @@
     inputType: 'text',
     section: 'BusinessDetails',
     documentTitle: '',
-    docVisible: []
+    docVisible: [],
+    dependentOn: null
   })
 
   const questions = ref([])
+  const mappingData = ref(null)
   const previewTab = ref('questions')
   const editingIndex = ref(null)
   const uploadDialog = ref(false)
   const questionsFile = ref(null)
   const mappingFile = ref(null)
   const uploadError = ref('')
+  const selectedSectionTab = ref('BusinessDetails')
+
+  const availableParentQuestions = computed(() => {
+    return [
+      { label: '(None - Top Level)', value: null },
+      ...questions.value.map((q, index) => ({
+        label: `${q.questionLabel} (${q.jsonPath})`,
+        value: q.jsonPath
+      }))
+    ]
+  })
+
+  const uniqueSections = computed(() => {
+    // If mapping data exists, use sections from mapping to preserve order
+    if (mappingData.value?.Mapping) {
+      const mappingSections = mappingData.value.Mapping.map(m => m.Section)
+      return mappingSections.length > 0 ? mappingSections : ['BusinessDetails']
+    }
+    // Otherwise, get unique sections from questions
+    const sections = [...new Set(questions.value.map(q => q.section))]
+    return sections.length > 0 ? sections : ['BusinessDetails']
+  })
+
+  const getQuestionsBySection = (section) => {
+    return questions.value
+      .map((q, index) => ({ ...q, originalIndex: index }))
+      .filter(q => q.section === section)
+  }
 
   const openUploadDialog = () => {
     console.log('Opening upload dialog')
@@ -480,6 +541,7 @@
         loadSampleQuestions()
       } else {
         questions.value = []
+        mappingData.value = null
         resetForm()
       }
     })
@@ -489,16 +551,34 @@
     try {
       // Dynamically import the sample JSON files
       const questionsData = await import('@/assets/sample_product/questions.json')
-      const mappingData = await import('@/assets/sample_product/mapping.json')
+      const loadedMapping = await import('@/assets/sample_product/mapping.json')
+      
+      // Store mapping data
+      mappingData.value = loadedMapping.default
 
       const importedQuestions = []
       
-      // Create a map of question to section from mapping
-      const questionSectionMap = {}
-      mappingData.default.Mapping?.forEach(sectionObj => {
-        sectionObj.Questions?.forEach(q => {
-          questionSectionMap[q.Question] = sectionObj.Section
+      // Recursive function to extract all questions including dependent questions
+      // and build parent-child dependency map
+      const extractQuestions = (questions, section, parentQuestion = null) => {
+        questions.forEach(q => {
+          questionSectionMap[q.Question] = section
+          // Track parent-child relationship
+          if (parentQuestion) {
+            questionDependencyMap[q.Question] = parentQuestion
+          }
+          // Recursively process dependent questions
+          if (q.DependentQuestion && q.DependentQuestion.length > 0) {
+            extractQuestions(q.DependentQuestion, section, q.Question)
+          }
         })
+      }
+      
+      // Create maps for question to section and question to parent
+      const questionSectionMap = {}
+      const questionDependencyMap = {}
+      loadedMapping.default.Mapping?.forEach(sectionObj => {
+        extractQuestions(sectionObj.Questions || [], sectionObj.Section)
       })
       
       // Parse questions.json
@@ -511,7 +591,8 @@
           inputType: q.InputType,
           section: questionSectionMap[key] || 'BusinessDetails',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
-          docVisible: q.Document?.DocVisible || []
+          docVisible: q.Document?.DocVisible || [],
+          dependentOn: questionDependencyMap[key] || null
         })
       })
       
@@ -559,7 +640,8 @@
       inputType: 'text',
       section: 'BusinessDetails',
       documentTitle: '',
-      docVisible: []
+      docVisible: [],
+      dependentOn: null
     }
   }
 
@@ -607,6 +689,7 @@
 
   const generateMappingJson = () => {
     const sectionMap = {}
+    const sectionOrder = mappingData.value?.Mapping?.map(m => m.Section) || []
     
     // Group questions by section
     questions.value.forEach(q => {
@@ -619,12 +702,15 @@
       })
     })
 
-    // Convert to mapping array
-    const mapping = Object.keys(sectionMap).map(section => ({
-      Section: section,
-      Questions: sectionMap[section],
-      DependentSection: []
-    }))
+    // Convert to mapping array, preserving section order from mapping if available
+    const allSections = [...new Set([...sectionOrder, ...Object.keys(sectionMap)])]
+    const mapping = allSections
+      .filter(section => sectionMap[section]) // Only include sections with questions
+      .map(section => ({
+        Section: section,
+        Questions: sectionMap[section],
+        DependentSection: []
+      }))
 
     return { Mapping: mapping }
   }
@@ -659,17 +745,35 @@
       
       // Read mapping.json
       const mappingText = await mFile.text()
-      const mappingData = JSON.parse(mappingText)
+      const loadedMapping = JSON.parse(mappingText)
+      
+      // Store mapping data
+      mappingData.value = loadedMapping
       
       // Parse and populate questions
       const importedQuestions = []
       
-      // Create a map of question to section from mapping
-      const questionSectionMap = {}
-      mappingData.Mapping?.forEach(sectionObj => {
-        sectionObj.Questions?.forEach(q => {
-          questionSectionMap[q.Question] = sectionObj.Section
+      // Recursive function to extract all questions including dependent questions
+      // and build parent-child dependency map
+      const extractQuestions = (questions, section, parentQuestion = null) => {
+        questions.forEach(q => {
+          questionSectionMap[q.Question] = section
+          // Track parent-child relationship
+          if (parentQuestion) {
+            questionDependencyMap[q.Question] = parentQuestion
+          }
+          // Recursively process dependent questions
+          if (q.DependentQuestion && q.DependentQuestion.length > 0) {
+            extractQuestions(q.DependentQuestion, section, q.Question)
+          }
         })
+      }
+      
+      // Create maps for question to section and question to parent
+      const questionSectionMap = {}
+      const questionDependencyMap = {}
+      loadedMapping.Mapping?.forEach(sectionObj => {
+        extractQuestions(sectionObj.Questions || [], sectionObj.Section)
       })
       
       // Parse questions.json
@@ -682,7 +786,8 @@
           inputType: q.InputType,
           section: questionSectionMap[key] || 'BusinessDetails',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
-          docVisible: q.Document?.DocVisible || []
+          docVisible: q.Document?.DocVisible || [],
+          dependentOn: questionDependencyMap[key] || null
         })
       })
       
@@ -757,6 +862,7 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     background-color: rgba(233, 30, 99, 0.08) !important;
     border: 2px solid #e91e63;
+    /* border: 2px solid #e91e63; */
     z-index: 10;
     width: calc(100% - 4%);
     margin-left: 2%;
