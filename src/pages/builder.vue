@@ -23,15 +23,6 @@
           
           <v-form ref="questionForm">
             <v-text-field
-              v-model="newQuestion.jsonPath"
-              label="Field Name (JSON Path)"
-              hint="e.g., InsuredName, ABN, BusinessTradingName"
-              persistent-hint
-              density="comfortable"
-              class="mb-3"
-            />
-
-            <v-text-field
               v-model="newQuestion.questionLabel"
               label="Question Label"
               hint="Displayed as the question text"
@@ -39,6 +30,29 @@
               density="comfortable"
               class="mb-3"
             />
+
+            <v-text-field
+              v-model="newQuestion.jsonPath"
+              label="Field Name (JSON Path)"
+              :hint="jsonPathOverride ? 'Manual override enabled - you can edit freely' : 'Auto-generated from Question Label (click lock to override)'"
+              persistent-hint
+              density="comfortable"
+              class="mb-3"
+              :class="{ 'json-path-locked': !jsonPathOverride, 'json-path-unlocked': jsonPathOverride }"
+              :readonly="!jsonPathOverride"
+              :variant="jsonPathOverride ? 'outlined' : 'filled'"
+            >
+              <template v-slot:append-inner>
+                <v-btn
+                  :icon="jsonPathOverride ? 'mdi-lock-open' : 'mdi-lock'"
+                  :color="jsonPathOverride ? 'primary' : 'default'"
+                  size="x-small"
+                  variant="text"
+                  @click="toggleJsonPathOverride"
+                  density="compact"
+                />
+              </template>
+            </v-text-field>
 
             <v-text-field
               v-model="newQuestion.controlLabel"
@@ -330,21 +344,31 @@
                   :key="index"
                   class="px-0 question-list-item"
                   :class="{ 'question-editing': editingIndex === question.originalIndex }"
-                  :style="{ marginLeft: `${question.depth * 48}px` }"
                   @click="selectQuestion(question.originalIndex)"
                   style="cursor: pointer;"
                 >
               <template v-slot:prepend>
-                <div class="d-flex align-center">
+                <div class="d-flex align-center tree-item-wrapper" :style="{ paddingLeft: `${question.depth * 24}px` }">
+                  <!-- Tree connector lines -->
+                  <div v-if="question.depth > 0" class="tree-connector">
+                    <div class="tree-line-vertical"></div>
+                    <div class="tree-line-horizontal"></div>
+                  </div>
+                  
+                  <!-- Folder/file icon based on whether it has children -->
                   <v-icon 
-                    v-if="question.hasChildren" 
                     size="small" 
-                    class="mr-1"
-                    :color="editingIndex === question.originalIndex ? 'primary' : 'default'"
+                    class="mr-2 tree-folder-icon"
+                    :color="editingIndex === question.originalIndex ? 'primary' : (question.hasChildren ? 'amber-darken-2' : 'blue-grey')"
                   >
-                    mdi-subdirectory-arrow-right
+                    {{ question.hasChildren ? 'mdi-folder' : 'mdi-file-document-outline' }}
                   </v-icon>
-                  <v-icon :color="editingIndex === question.originalIndex ? 'error' : 'default'">
+                  
+                  <!-- Input type icon -->
+                  <v-icon 
+                    size="small"
+                    :color="editingIndex === question.originalIndex ? 'error' : 'default'"
+                  >
                     {{
                       editingIndex === question.originalIndex ? 'mdi-pencil' : (
                         {
@@ -485,7 +509,7 @@
 </template>
 
 <script setup>
-  import { ref, computed, onMounted } from 'vue'
+  import { ref, computed, onMounted, watch } from 'vue'
   import { useRoute } from 'vue-router'
 
   const route = useRoute()
@@ -512,6 +536,7 @@
   const mappingFile = ref(null)
   const uploadError = ref('')
   const selectedSectionTab = ref('BusinessDetails')
+  const jsonPathOverride = ref(false)
 
   const availableParentQuestions = computed(() => {
     return [
@@ -533,6 +558,23 @@
     const sections = [...new Set(questions.value.map(q => q.section))]
     return sections.length > 0 ? sections : ['BusinessDetails']
   })
+
+  // Auto-generate jsonPath from questionLabel
+  const generateJsonPath = (label) => {
+    return label.replace(/\s+/g, '')
+  }
+
+  // Watch questionLabel and auto-update jsonPath if override is not enabled
+  watch(() => newQuestion.value.questionLabel, (newLabel) => {
+    if (!jsonPathOverride.value) {
+      newQuestion.value.jsonPath = generateJsonPath(newLabel)
+    }
+  })
+
+  // Toggle jsonPath override mode
+  const toggleJsonPathOverride = () => {
+    jsonPathOverride.value = !jsonPathOverride.value
+  }
 
   const getQuestionDepth = (question) => {
     let depth = 0
@@ -664,6 +706,10 @@
   const selectQuestion = (index) => {
     editingIndex.value = index
     newQuestion.value = { ...questions.value[index] }
+    
+    // Check if jsonPath was manually overridden (differs from auto-generated)
+    const autoGenerated = generateJsonPath(questions.value[index].questionLabel)
+    jsonPathOverride.value = questions.value[index].jsonPath !== autoGenerated
   }
 
   const cancelEdit = () => {
@@ -682,6 +728,7 @@
       docVisible: [],
       dependentOn: null
     }
+    jsonPathOverride.value = false
   }
 
   const removeQuestion = (index) => {
@@ -1100,12 +1147,75 @@
 
   :deep(.v-theme--dark) .table-input {
     background-color: #2d2d2d;
-    border-color: #555;
+  }
+
+  /* File Tree Structure Styles */
+  .tree-item-wrapper {
+    position: relative;
+  }
+
+  .tree-connector {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .tree-line-vertical {
+    position: absolute;
+    left: 12px;
+    top: -16px;
+    bottom: 50%;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  :deep(.v-theme--dark) .tree-line-vertical {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .tree-line-horizontal {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 12px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  :deep(.v-theme--dark) .tree-line-horizontal {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .tree-folder-icon {
+    flex-shrink: 0;
   }
 
   .hidden-preview {
     font-size: 14px;
     font-style: italic;
     opacity: 0.6;
+  }
+
+  /* JSON Path field visual states */
+  .json-path-locked {
+    opacity: 0.7;
+  }
+
+  .json-path-locked :deep(.v-field__input) {
+    cursor: not-allowed;
+  }
+
+  .json-path-unlocked {
+    opacity: 1;
+  }
+
+  .json-path-unlocked :deep(.v-field) {
+    background-color: rgba(33, 150, 243, 0.05);
+  }
+
+  :deep(.v-theme--dark) .json-path-unlocked :deep(.v-field) {
+    background-color: rgba(33, 150, 243, 0.1);
   }
 </style>
