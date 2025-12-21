@@ -92,7 +92,8 @@
                                 'table': 'mdi-table',
                                 'hidden': 'mdi-eye-off',
                                 'textarea': 'mdi-form-textarea',
-                                'checkbox': 'mdi-checkbox-marked'
+                                'checkbox': 'mdi-checkbox-marked',
+                                'note': 'mdi-notebook-edit-outline'
                               }[type] || 'mdi-help-circle-outline'
                             }}
                           </v-icon>
@@ -383,7 +384,8 @@
                           'table': 'mdi-table',
                           'hidden': 'mdi-eye-off',
                           'textarea': 'mdi-form-textarea',
-                          'checkbox': 'mdi-checkbox-marked'
+                          'checkbox': 'mdi-checkbox-marked',
+                          'note': 'mdi-notebook-edit-outline'
                         }[question.inputType] || 'mdi-help-circle-outline'
                       )
                     }}
@@ -514,7 +516,7 @@
 
   const route = useRoute()
 
-  const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden']
+  const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden', 'note']
 
   const newQuestion = ref({
     jsonPath: '',
