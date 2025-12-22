@@ -193,7 +193,12 @@
           <!-- Live Form Preview -->
           <v-divider class="my-6" />
           <div class="text-h6 mb-4">Live Preview</div>
-          <div class="form-preview-container">
+          <div class="form-preview-container"  v-if="newQuestion.inputType === 'note' || newQuestion.inputType === 'docNote'">
+            <div class="preview-note">
+              <div v-html="newQuestion.questionLabel || 'Note content will be displayed here'"></div>
+            </div>
+          </div>
+          <div class="form-preview-container" v-else>
             <div class="preview-question-row">
               <label class="preview-label">
                 {{ newQuestion.questionLabel || 'Question Label' }}
@@ -1149,6 +1154,36 @@
 
   :deep(.v-theme--dark) .table-input {
     background-color: #2d2d2d;
+  }
+
+  .preview-note {
+    padding: 12px 16px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  :deep(.v-theme--dark) .preview-note {
+    background-color: #2d2d2d;
+    border-color: #555;
+  }
+
+  .preview-note b,
+  .preview-note strong {
+    font-weight: 600;
+    color: inherit;
+  }
+
+  .preview-note i,
+  .preview-note em {
+    font-style: italic;
+  }
+
+  .preview-note u {
+    text-decoration: underline;
   }
 
   /* File Tree Structure Styles */
