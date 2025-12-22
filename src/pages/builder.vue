@@ -93,7 +93,9 @@
                                 'hidden': 'mdi-eye-off',
                                 'textarea': 'mdi-form-textarea',
                                 'checkbox': 'mdi-checkbox-marked',
-                                'note': 'mdi-notebook-edit-outline'
+                                'note': 'mdi-notebook-edit-outline',
+                                'currency-v1': 'mdi-currency-usd',
+                                'currency': 'mdi-currency-usd'
                               }[type] || 'mdi-help-circle-outline'
                             }}
                           </v-icon>
@@ -311,6 +313,19 @@
                   </table>
                 </div>
 
+                <!-- Currency v1 -->
+                <div v-else-if="newQuestion.inputType === 'currency-v1' || newQuestion.inputType === 'currency'" class="currency-input-wrapper">
+                  <div class="currency-icon">
+                    <v-icon size="18">mdi-currency-usd</v-icon>
+                  </div>
+                  <input
+                    type="text"
+                    class="preview-input currency-input"
+                    placeholder="0.00"
+                    maxlength="13"
+                  />
+                </div>
+
                 <!-- Hidden -->
                 <div v-else-if="newQuestion.inputType === 'hidden'" class="hidden-preview">
                   <em>Hidden field (not visible to user)</em>
@@ -390,7 +405,9 @@
                           'hidden': 'mdi-eye-off',
                           'textarea': 'mdi-form-textarea',
                           'checkbox': 'mdi-checkbox-marked',
-                          'note': 'mdi-notebook-edit-outline'
+                          'note': 'mdi-notebook-edit-outline',
+                          'currency': 'mdi-currency-usd',
+                          'currency-v1': 'mdi-currency-usd'
                         }[question.inputType] || 'mdi-help-circle-outline'
                       )
                     }}
@@ -521,7 +538,7 @@
 
   const route = useRoute()
 
-  const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden', 'note']
+  const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden', 'note', 'currency-v1', 'currency']
 
   const newQuestion = ref({
     jsonPath: '',
@@ -1051,6 +1068,29 @@
 
   .preview-textarea {
     resize: vertical;
+  }
+
+  .currency-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .currency-icon {
+    position: absolute;
+    left: 12px;
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .currency-input {
+    padding-left: 36px !important;
   }
 
   .preview-radio-buttons {
