@@ -1,0 +1,409 @@
+{
+    "QuoteCombinations": [
+        {
+            "Conditional": true,
+            "Key": "PaymentFrequency",
+            "InputType": "Value",
+            "Values": [
+                {
+                    "Key": "Annual",
+                    "Value": "Annual"
+                }
+            ]
+        }
+    ],
+    "UIBreadcrumbs": [
+        {
+            "Id": 1,
+            "Title": "QUOTE START",
+            "Href": "/newbusiness",
+            "IsActive": true,
+            "NextStep": 2,
+            "PreviousStep": 0,
+            "Url": "-1",
+            "Stage": "DateSelection",
+            "Order": 1
+        },
+        {
+            "Id": 2,
+            "Title": "QUOTE START",
+            "Href": "/newbusiness",
+            "IsActive": true,
+            "NextStep": 6,
+            "PreviousStep": 1,
+            "Url": null,
+            "Stage": "question",
+            "Order": 1
+        },
+        {
+            "Id": 5,
+            "Title": "REFER",
+            "Href": "/newbusiness",
+            "IsActive": null,
+            "NextStep": 6,
+            "PreviousStep": 2,
+            "Url": null,
+            "Stage": "refer",
+            "navigationstop": "refer",
+            "Order": 1002
+        },
+        {
+            "Id": 6,
+            "Title": "QUOTE SUMMARY",
+            "Href": "/newbusiness",
+            "IsActive": true,
+            "NextStep": 7,
+            "PreviousStep": 2,
+            "Url": null,
+            "Stage": "summary",
+            "navigationstop": "view",
+            "Order": 1003
+        },
+        {
+            "Id": 7,
+            "Title": "CLIENT",
+            "Href": "/newbusiness",
+            "IsActive": true,
+            "NextStep": 8,
+            "PreviousStep": 6,
+            "Url": null,
+            "Stage": "client",
+            "Order": 1004,
+            "InActiveOn": [
+                2
+            ]
+        },
+        {
+            "Id": 8,
+            "Title": "PAYMENT",
+            "Href": "/newbusiness",
+            "IsActive": false,
+            "NextStep": 9,
+            "PreviousStep": 6,
+            "Url": null,
+            "Stage": "payment",
+            "navigationstop": "true",
+            "Order": 1005
+        },
+        {
+            "Id": 9,
+            "Title": "POLICY SUMMARY",
+            "Href": "/summary",
+            "IsActive": true,
+            "NextStep": null,
+            "PreviousStep": 6,
+            "Url": null,
+            "Stage": "policysummary",
+            "navigationstop": "view",
+            "Order": 1006
+        }
+    ],
+    "ProductCode": "CMTR",
+    "Version": 4.17,
+    "Insureds": {
+        "Path": "BusinessDetails",
+        "Fields": "['InsuredName','BusinessTradingName']",
+        "Concatenator": " "
+    },
+    "Metadata": {
+        "RiskNodes": [
+            {
+                "Path": "CommercialVehiclesPolicy.Vehicles",
+                "Value": "Array",
+                "Description": "VehiclesDetail.vehicleDescription"
+            }
+        ],
+        "RiskDescription": {
+            "Map": {
+                "CMV": {
+                    "Path": "CommercialVehiclesPolicy.Vehicles",
+                    "RiskDescription": "Vehicle",
+                    "RiskLabel": {
+                        "Elements": [
+                            {
+                                "Path": "RegistrationNumber",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "YearOfManufacture",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "Make",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "Model",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.registrationNumber",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.manufactureYear",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.make",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.vehicleDescription",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehicleDescription",
+                                "LookupValue": null,
+                                "Parser": null
+                            }
+                        ],
+                        "Joiner": " - "
+                    }
+                },
+                "Motor": {
+                    "Path": "CommercialVehiclesPolicy.Vehicles",
+                    "RiskDescription": "Vehicle",
+                    "RiskLabel": {
+                        "Elements": [
+                            {
+                                "Path": "RegistrationNumber",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "YearOfManufacture",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "Make",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "Model",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.registrationNumber",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.manufactureYear",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.make",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehiclesDetail.vehicleDescription",
+                                "LookupValue": null,
+                                "Parser": null
+                            },
+                            {
+                                "Path": "VehicleDescription",
+                                "LookupValue": null,
+                                "Parser": null
+                            }
+                        ],
+                        "Joiner": " - "
+                    }
+                }
+            }
+        },
+        "SectionsRequired": null,
+        "Insureds": {
+            "Path": "BusinessDetails",
+            "Fields": "['InsuredName','BusinessTradingName']",
+            "Concatenator": " "
+        },
+        "InterestedParties": [
+            {
+                "Path": "UnderwritingCriteria.InterestedParties.Name"
+            }
+        ],
+        "Locations": [],
+        "Contract": {
+            "Parties": [
+                {
+                    "Source": "BusinessDetails",
+                    "Path": "",
+                    "Fields": [
+                        {
+                            "Key": "UID",
+                            "Value": null,
+                            "Source": "['UID']"
+                        },
+                        {
+                            "Key": "Name",
+                            "Value": null,
+                            "Source": "['InsuredName','BusinessTradingName']"
+                        },
+                        {
+                            "Key": "DateOfBirth",
+                            "Value": null,
+                            "Source": "['YearOfBirth']"
+                        }
+                    ],
+                    "Section": "Insured Details",
+                    "PartyType": "Insured"
+                }
+            ],
+            "Locations": [
+                {
+                    "Source": "BusinessDetails",
+                    "Path": "",
+                    "Fields": [
+                        {
+                            "Key": "UID",
+                            "Value": null,
+                            "Source": "['UID']"
+                        },
+                        {
+                            "Key": "StreetAddress",
+                            "Value": null,
+                            "Source": "['PrimaryAddress']['StreetAddress']"
+                        },
+                        {
+                            "Key": "LocationCode",
+                            "Value": null,
+                            "Source": "['PrimaryAddress']['Gnaf']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['Description']"
+                        }
+                    ],
+                    "Section": "BusinessDetails",
+                    "LocationType": "Insured Address"
+                },
+                {
+                    "Source": "CommercialVehiclesPolicy.Vehicles[*]",
+                    "Path": "",
+                    "Fields": [
+                        {
+                            "Key": "UID",
+                            "Value": null,
+                            "Source": "['UID']"
+                        },
+                        {
+                            "Key": "StreetAddress",
+                            "Value": null,
+                            "Source": "['Address']['StreetAddress']"
+                        },
+                        {
+                            "Key": "LocationCode",
+                            "Value": null,
+                            "Source": "['Address']['Gnaf']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['Description']"
+                        }
+                    ],
+                    "Section": "Vehicles",
+                    "LocationType": "Parking Address"
+                }
+            ],
+            "Assets": [
+                {
+                    "Source": "CommercialVehiclesPolicy.Vehicles[*]",
+                    "Path": "",
+                    "Fields": [
+                        {
+                            "Key": "UID",
+                            "Value": null,
+                            "Source": "['UID']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['registrationNumber']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['manufactureYear']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['make']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['model']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['style']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['transmission']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['RegistrationNumber']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['YearOfManufacture']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['Make']"
+                        },
+                        {
+                            "Key": "Description",
+                            "Value": null,
+                            "Source": "['VehicleDescription']"
+                        },
+                        {
+                            "Key": "UniqueIdentifier",
+                            "Value": null,
+                            "Source": "['VehiclesDetail']['registrationNumber']"
+                        },
+                        {
+                            "Key": "UniqueIdentifier",
+                            "Value": null,
+                            "Source": "['RegistrationNumber']"
+                        }
+                    ],
+                    "SourceFields": [
+                        {
+                            "Key": "RiskUID",
+                            "Value": null,
+                            "Source": "['UID']"
+                        }
+                    ],
+                    "Section": "Vehicles",
+                    "IsRisk": true,
+                    "AssetType": "Vehicle"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "BusinessDetails": {
+        "ShortTitle": "Details",
+        "Title": "BUSINESS DETAILS",
+        "Document": {
+            "DocVisible": [
+                "COC",
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 1,
+            "DocumentTitle": "BUSINESS DETAILS"
+        },
+        "Description": "",
+        "JsonPath": "BusinessDetails",
+        "NavigationName": "BUSINESS DETAILS",
+        "Navigation": [
+            "breadcrumb",
+            "previous"
+        ],
+        "Stage": "question",
+        "Prerequisite": ""
+    },
+    "UnderwritingCriteria": {
+        "ShortTitle": "Underwriting Criteria",
+        "Title": "UNDERWRITING CRITERIA & DRIVER DECLARATION",
+        "Document": {
+            "DocVisible": [
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 2,
+            "DocumentTitle": "UNDERWRITING CRITERIA & DRIVER DECLARATION"
+        },
+        "Description": "",
+        "JsonPath": "UnderwritingCriteria",
+        "NavigationName": "UNDERWRITING CRITERIA & DRIVER DECLARATION",
+        "Navigation": [
+            "breadcrumb",
+            "previous"
+        ],
+        "Stage": "question",
+        "Prerequisite": ""
+    },
+    "CommercialVehiclesPolicy": {
+        "ShortTitle": "Vehicle Schedule",
+        "Title": "VEHICLE SCHEDULE",
+        "Document": {
+            "DocVisible": [
+                "COC",
+                "SCD",
+                "PRP"
+            ],
+            "DocOrder": 3,
+            "DocumentTitle": "VEHICLE SCHEDULE"
+        },
+        "Description": "",
+        "JsonPath": "CommercialVehiclesPolicy",
+        "NavigationName": "VEHICLE SCHEDULE",
+        "Navigation": [
+            "breadcrumb",
+            "previous"
+        ],
+        "Stage": "question",
+        "Prerequisite": ""
+    },
+    "Commission": {
+        "ShortTitle": "Commission",
+        "Title": "COMMISSION",
+        "Document": {
+            "DocVisible": [],
+            "DocOrder": 4,
+            "DocumentTitle": "COMMISSION"
+        },
+        "Description": "",
+        "JsonPath": "Commission",
+        "NavigationName": "COMMISSION",
+        "Navigation": [
+            "breadcrumb",
+            "previous"
+        ],
+        "Stage": "question",
+        "Prerequisite": ""
+    }
+}

@@ -1,0 +1,485 @@
+{
+    "Mapping": [
+        {
+            "Section": "BusinessDetails",
+            "Questions": [
+                {
+                    "Question": "InsuredName",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "ABN",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "BusinessTradingName",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "PrimaryAddress",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "PrimaryBusinessActivity",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "StampDutyExempt",
+                    "DependentQuestion": []
+                },
+                {
+                    "Question": "StampDutyExemptDec",
+                    "DependentQuestion": []
+                }
+            ],
+            "DependentSection": []
+        },
+        {
+            "Section": "UnderwritingCriteria",
+            "Questions": [
+                {
+                    "Question": "Bankruptcy",
+                    "DependentQuestion": [
+                        {
+                            "Question": "BankruptcyDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "Type",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Description",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "CriminalConvictions",
+                    "DependentQuestion": [
+                        {
+                            "Question": "CriminalConvictionsDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "Year_2",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Description_2",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "InsuranceDeclined",
+                    "DependentQuestion": [
+                        {
+                            "Question": "InsuranceDeclinedDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "Reason",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_3",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Description_3",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "AlcoholDrugs",
+                    "DependentQuestion": [
+                        {
+                            "Question": "AlcoholDrugsDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriverName",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_4",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Details",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "LicenceCancelled",
+                    "DependentQuestion": [
+                        {
+                            "Question": "LicenceCancelledDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriverName_2",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_5",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Details_2",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "DriverInsuranceDeclined",
+                    "DependentQuestion": [
+                        {
+                            "Question": "DriverInsuranceDeclinedDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriverName_3",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_6",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Details_3",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "ClaimDeclined",
+                    "DependentQuestion": [
+                        {
+                            "Question": "ClaimDeclinedDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriverName_4",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Reason_2",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_7",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Description_4",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "Question": "ClaimsHistory",
+                    "DependentQuestion": [
+                        {
+                            "Question": "ClaimsHistoryDetails",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriverName_5",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Type_2",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Year_8",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "ClaimAmount",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "Details_1",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "ReportedDate",
+                                    "DependentQuestion": []
+                                }, 
+                                {
+                                    "Question": "ClaimClosed",
+                                    "DependentQuestion": []
+                                },
+                                {
+                                    "Question": "ClaimNumber",
+                                    "DependentQuestion": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "DependentSection": []
+        },
+        {
+            "Section": "CommercialVehiclesPolicy",
+            "Questions": [
+                {
+                    "Question": "Vehicles",
+                    "DependentQuestion": [
+                        {
+                            "Question": "VehicleClass",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "InvalidVehicleClassNote",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "CoverType",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VehiclesDetail",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "StateVehicleRegistered",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "RegistrationNumber",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "YearOfManufacture",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "Make",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VehicleDescription",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VinSerialNumber",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "SumInsuredType",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "SumInsured",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "DocLegalLimitLiability",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "Address",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VehiclePrimaryUse",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VehicleUsedFor",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "FactoryAccessories",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "FactoryAccessoriesDetails",
+                                    "DependentQuestion": [
+                                        {
+                                            "Question": "Description_5",
+                                            "DependentQuestion": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Question": "Accessories",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "AccessoriesDetails",
+                                    "DependentQuestion": [
+                                        {
+                                            "Question": "Type_3",
+                                            "DependentQuestion": []
+                                        },
+                                        {
+                                            "Question": "Value",
+                                            "DependentQuestion": []
+                                        },
+                                        {
+                                            "Question": "Description_6",
+                                            "DependentQuestion": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Question": "TotalInsuredValue",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "ExistingHailOrOtherDamage",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "ExistingMechanicalIssues",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "GaragedOvernightType",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "WheelClampsLock",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "EpsPanels",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "ConductDeepWokCooking",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "DeepFryAutoCutOff",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "DeepFryExhaustClean",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "WokCookingCutOffWater",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "CharcoalsProcess",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "FireExtinguisherBlanket",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "VehicleSecurity",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "KeysSecured",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "GPSFitted",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "Excess",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "ExcessDisclaimer",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "MainDriverYearOfBirth",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "DriversUnder25",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "DriversUnder25Details",
+                                    "DependentQuestion": [
+                                        {
+                                            "Question": "FirstName",
+                                            "DependentQuestion": []
+                                        },
+                                        {
+                                            "Question": "Surname",
+                                            "DependentQuestion": []
+                                        },
+                                        {
+                                            "Question": "YearOfBirth",
+                                            "DependentQuestion": []
+                                        },
+                                        {
+                                            "Question": "AgeLicenceObtained",
+                                            "DependentQuestion": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "Question": "HireCarAfterAccident",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "WindscreenExtension",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "RoadsideAssist",
+                            "DependentQuestion": []
+                        },
+                        {
+                            "Question": "InterestedParties",
+                            "DependentQuestion": [
+                                {
+                                    "Question": "InterestedPartiesDetails",
+                                    "DependentQuestion": [
+                                        {
+                                            "Question": "Name",
+                                            "DependentQuestion": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "DependentSection": []
+        },
+        {
+            "Section": "Commission",
+            "Questions": [
+                {
+                    "Question": "Commission",
+                    "DependentQuestion": []
+                }
+            ],
+            "DependentSection": []
+        }
+    ]
+}

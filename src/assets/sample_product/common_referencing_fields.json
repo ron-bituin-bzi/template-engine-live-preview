@@ -1,0 +1,356 @@
+{
+    "Validation": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        }
+    ],
+    "Validation_Commission": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "MINIMUM_COMMISSION",
+            "ErrorMessage": "Invalid commission, min amount MINIMUM_COMMISSION%"
+        },
+        {
+            "ValidationType": "max",
+            "Value": "MAXIMUM_COMMISSION",
+            "ErrorMessage": "Invalid commission, max amount MAXIMUM_COMMISSION%"
+        }
+    ],
+    "Validation_Date_Picker": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "max-date",
+            "Value": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "ErrorMessage": "Date is Invalid!"
+        }
+    ],
+    "Validation_Date_Picker_Date_Of_Loss": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min-date",
+            "Value": {
+                "day": 0,
+                "month": 0,
+                "year": -3
+            },
+            "ErrorMessage": "Select a date in the last 3 years"
+        },
+        {
+            "ValidationType": "max-date",
+            "Value": {
+                "year": 0,
+                "month": 0,
+                "day": 0
+            },
+            "ErrorMessage": "Date cannot be in future"
+        }
+    ],
+    "AdditionalProperties_StandardField": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 label-control",
+        "ControlParentClass": ""
+    },
+    "AdditionalProperties_StandardTable": {
+        "ControlClassTags": "form-control",
+        "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+        "ControlParentClass": "col-lg-6 col-sm-6",
+        "UILook": "table",
+        "RiskButtonText": "Add More",
+        "Version": "v1"
+    },
+    "AdditionalProperties_TableField1Col": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 col-sm-12 label-control",
+        "ControlParentClass": "col-lg-12 col-sm-12"
+    },
+    "AdditionalProperties_TableField2Col": {
+        "ControlClassTags": "form-control minheight37",
+        "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 col-sm-12 label-control",
+        "ControlParentClass": "col-lg-12 col-sm-12"
+    },
+    "AdditionalProperties_DisableIfBound": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 label-control",
+        "ControlParentClass": "",
+        "DisableIfBound": true
+    },
+    "AdditionalPorperties_SectionSelector": {
+        "ControlClassTags": "form-control",
+        "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "label-control",
+        "ControlParentClass": "col-lg-6 col-sm-6",
+        "DropFormControls": true
+    },
+    "AdditionalProperties_Commission_DisableIfBound": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-6 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 label-control",
+        "ControlParentClass": "",
+        "DisableIfBound": true
+    },
+    "AdditionalProperties_Docnote": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-12 col-lg-12 label-control pt-0 text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-12 label-control",
+        "ControlParentClass": "",
+        "Type": "info clear"
+    },
+    "AdditionalProperties_TextLeft": {
+        "ControlClassTags": "form-control width340 minheight37",
+        "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+        "ControlParentClass": "col-lg-6 col-sm-6 marginleft15"
+    },
+    "AdditionalProperties_Address": {
+        "ControlClassTags": "form-control marginleft15 minheight37",
+        "QuestionLabelClassTags": "col-sm-3 col-lg-6 label-control pt-0 text-right text-left-mb font14",
+        "ControlLabelClassTags": "col-lg-8 col-sm-8 label-control",
+        "ControlParentClass": "col-lg-6 col-sm-6",
+        "ManualAddressFields": [
+            {
+                "MappingFormControl": "StreetAddress",
+                "QuestionLabel": "Street Number/Name",
+                "ControlLabel": "Street Number/Name",
+                "Show": true,
+                "HintText": "",
+                "IsRequired": true
+            },
+            {
+                "MappingFormControl": "AddressDescription",
+                "QuestionLabel": "Location Description (incl. Building Name/Shop-Unit Number)",
+                "ControlLabel": "Location Description",
+                "Show": true,
+                "HintText": "",
+                "IsRequired": false
+            },
+            {
+                "MappingFormControl": "WholeSuburb",
+                "QuestionLabel": "Suburb",
+                "ControlLabel": "Suburb",
+                "Show": true,
+                "HintText": "Select valid suburb from the results",
+                "IsRequired": true
+            }
+        ]
+    },
+    "Validation_Year": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "1800",
+            "ErrorMessage": "Invalid year"
+        },
+        {
+            "ValidationType": "max",
+            "Value": "CURRENT_YEAR",
+            "ErrorMessage": "Invalid year"
+        }
+    ],
+    "Validation_3Years": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "2020",
+            "ErrorMessage": "Please enter 2020 or later"
+        },
+        {
+            "ValidationType": "max",
+            "Value": "CURRENT_YEAR",
+            "ErrorMessage": "Please enter a valid year"
+        }
+    ],
+    "Validation_Anzsic": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "Select a valid occupation from the options provided"
+        }
+    ],
+    "Validation_ABN": [
+        {
+            "ValidationType": "minlength",
+            "Value": "11",
+            "ErrorMessage": "Please provide a valid ABN"
+        },
+        {
+            "ValidationType": "maxlength",
+            "Value": "11",
+            "ErrorMessage": "Please provide a valid ABN"
+        }
+    ],
+    "Validation_4Digits": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "1",
+            "ErrorMessage": "Value must be 1 or more"
+        },
+        {
+            "ValidationType": "max",
+            "Value": "9999",
+            "ErrorMessage": "Value must be 9999 or less"
+        }
+    ],
+    "Validation_Under100": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "1",
+            "ErrorMessage": "Must be 1 or more"
+        },
+        {
+            "ValidationType": "max",
+            "Value": "100",
+            "ErrorMessage": "Must be 100 or less"
+        }
+    ],
+    "Validation_DefaultGlassesExcess": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "Computed",
+            "Value": "",
+            "ErrorMessage": "Minimum excess is ##",
+            "Computation": {
+                "Against": "VehiclesDetail.defaultExcess",
+                "Operator": "gt",
+                "Of": null,
+                "Default": null
+            }
+        }
+    ],
+    "Validation_MoreThan10": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "11",
+            "ErrorMessage": "Must be 11 or more"
+        }
+    ],
+    "Validation_ExcessOver600": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "600",
+            "ErrorMessage": "Minimum excess is $600"
+        }
+    ],
+    "Validation_Email": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "Format",
+            "Value": "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+            "ErrorMessage": "Invalid email."
+        }
+    ],
+    "Validation_BSB": [
+        {
+            "ValidationType": "minlength",
+            "Value": "6",
+            "ErrorMessage": "Invalid BSB"
+        },
+        {
+            "ValidationType": "maxlength",
+            "Value": "6",
+            "ErrorMessage": "Invalid BSB"
+        }
+    ],
+    "Validation_AccountNumber": [
+        {
+            "ValidationType": "minlength",
+            "Value": "6",
+            "ErrorMessage": "Invalid A/C #"
+        },
+        {
+            "ValidationType": "maxlength",
+            "Value": "8",
+            "ErrorMessage": "Invalid A/C #"
+        }
+    ],
+    "Validation_MoreThan1": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "min",
+            "Value": "1",
+            "ErrorMessage": "Must be 1 or more"
+        }
+    ],
+    "Validation_claims_BSB": [
+        {
+            "ValidationType": "Format",
+            "Value": "^\\d+$",
+            "ErrorMessage": "Only numbers are allowed"
+        }
+    ],
+    "Validation_Mobile_Phone": [
+        {
+            "ValidationType": "Required",
+            "Value": "true",
+            "ErrorMessage": "This field is required"
+        },
+        {
+            "ValidationType": "Format",
+            "Value": "^(?:\\+?(61))? ?(?:\\((?=.*\\)))?(0?[2-57-8])\\)? ?(\\d\\d(?:[- ](?=\\d{3})|(?!\\d\\d[- ]?\\d[- ]))\\d\\d[- ]?\\d[- ]?\\d{3})\\b",
+            "ErrorMessage": "Invalid mobile or phone number"
+        }
+    ]
+}
