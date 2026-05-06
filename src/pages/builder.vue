@@ -469,6 +469,41 @@
       </v-col>
     </v-row>
 
+    <!-- Document Preview Section -->
+    <v-row>
+      <v-col cols="12">
+        <v-card elevation="2" class="pa-4">
+          <v-card-title class="text-h6 pa-0 mb-4">Document Preview</v-card-title>
+
+          <v-tabs v-model="docPreviewTab" class="mb-4">
+            <v-tab value="SCD">SCD</v-tab>
+            <v-tab value="PRP">PRP</v-tab>
+            <v-tab value="COC">COC</v-tab>
+          </v-tabs>
+
+          <v-window v-model="docPreviewTab">
+            <v-window-item v-for="docType in ['SCD', 'PRP', 'COC']" :key="docType" :value="docType">
+              <v-list v-if="getDocVisibleQuestions(docType).length > 0" class="doc-preview-list">
+                <v-list-item
+                  v-for="(q, idx) in getDocVisibleQuestions(docType)"
+                  :key="q.jsonPath"
+                >
+                  <template v-slot:prepend>
+                    <v-chip size="small" class="mr-3" color="primary" variant="tonal">{{ idx + 1 }}</v-chip>
+                  </template>
+                  <v-list-item-title class="doc-title">{{ q.documentTitle || q.questionLabel }}</v-list-item-title>
+                  <v-list-item-subtitle>{{ q.jsonPath }} • {{ q.inputType }}</v-list-item-subtitle>
+                </v-list-item>
+              </v-list>
+              <v-alert v-else type="info" variant="tonal">
+                No questions visible in {{ docType }}.
+              </v-alert>
+            </v-window-item>
+          </v-window>
+        </v-card>
+      </v-col>
+    </v-row>
+
     <!-- Preview Section -->
     <v-row>
       <v-col cols="12">
@@ -548,6 +583,7 @@
     section: 'BusinessDetails',
     documentTitle: '',
     docVisible: [],
+    docOrder: null,
     dependentOn: null
   })
 
@@ -561,6 +597,7 @@
   const uploadError = ref('')
   const selectedSectionTab = ref('BusinessDetails')
   const jsonPathOverride = ref(false)
+  const docPreviewTab = ref('SCD')
 
   const availableParentQuestions = computed(() => {
     return [
@@ -624,6 +661,17 @@
         hasChildren: hasChildren(q.jsonPath)
       }))
       .filter(q => q.section === section)
+  }
+
+  const getDocVisibleQuestions = (docType) => {
+    return questions.value
+      .map((q, index) => ({ ...q, _index: index }))
+      .filter(q => q.docVisible && q.docVisible.includes(docType))
+      .sort((a, b) => {
+        const orderA = a.docOrder != null ? a.docOrder : a._index
+        const orderB = b.docOrder != null ? b.docOrder : b._index
+        return orderA - orderB
+      })
   }
 
   const openUploadDialog = () => {
@@ -697,6 +745,7 @@
           section: questionSectionMap[key] || 'BusinessDetails',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
+          docOrder: q.Document?.DocOrder ?? null,
           dependentOn: questionDependencyMap[key] || null
         })
       })
@@ -750,6 +799,7 @@
       section: 'BusinessDetails',
       documentTitle: '',
       docVisible: [],
+      docOrder: null,
       dependentOn: null
     }
     jsonPathOverride.value = false
@@ -773,7 +823,7 @@
         QuestionLabel: q.questionLabel,
         Document: {
           DocVisible: q.docVisible && q.docVisible.length > 0 ? q.docVisible : ["SCD", "PRP", "COC"],
-          DocOrder: Object.keys(questionsObj).length + 1,
+          DocOrder: q.docOrder ?? (Object.keys(questionsObj).length + 1),
           DocumentTitle: q.documentTitle || q.questionLabel
         },
         ControlLabel: q.controlLabel || q.questionLabel,
@@ -920,6 +970,7 @@
           section: questionSectionMap[key] || 'BusinessDetails',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
+          docOrder: q.Document?.DocOrder ?? null,
           dependentOn: questionDependencyMap[key] || null
         })
       })
@@ -1294,5 +1345,15 @@
 
   :deep(.v-theme--dark) .json-path-unlocked :deep(.v-field) {
     background-color: rgba(33, 150, 243, 0.1);
+  }
+
+  .doc-preview-list {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .doc-title {
+    white-space: normal;
+    line-height: 1.4;
   }
 </style>
