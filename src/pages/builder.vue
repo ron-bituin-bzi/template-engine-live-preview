@@ -172,6 +172,101 @@
               </v-row>
             </div>
 
+            <div class="mb-4">
+              <div class="d-flex justify-space-between align-center mb-2">
+                <label class="text-subtitle-2">Prerequisites</label>
+                <v-btn
+                  size="x-small"
+                  variant="outlined"
+                  @click="addPrerequisite"
+                  prepend-icon="mdi-plus"
+                >
+                  Add
+                </v-btn>
+              </div>
+
+              <v-alert
+                v-if="newQuestion.prerequisites.length === 0"
+                type="info"
+                variant="tonal"
+                density="compact"
+              >
+                No prerequisites — this question is always visible.
+              </v-alert>
+
+              <div
+                v-for="(prereq, index) in newQuestion.prerequisites"
+                :key="index"
+                class="prereq-card pa-3 mb-2"
+              >
+                <div class="d-flex justify-space-between align-center mb-2">
+                  <span class="text-caption font-weight-bold">Condition {{ index + 1 }}</span>
+                  <v-btn
+                    icon="mdi-delete"
+                    size="x-small"
+                    variant="text"
+                    color="error"
+                    @click="removePrerequisite(index)"
+                  />
+                </div>
+
+                <v-autocomplete
+                  v-model="prereq.questionJsonKey"
+                  :items="availableQuestionsForPrereq"
+                  item-title="label"
+                  item-value="value"
+                  label="When Question"
+                  density="compact"
+                  hide-details
+                  class="mb-2"
+                />
+
+                <v-text-field
+                  v-model="prereq._matchingConditionText"
+                  label="Matching Values (comma-separated)"
+                  hint="e.g. YES or NSW,QLD,VIC"
+                  persistent-hint
+                  density="compact"
+                  class="mb-2"
+                  @blur="parseMatchingCondition(prereq)"
+                />
+
+                <v-row dense>
+                  <v-col cols="6">
+                    <v-select
+                      v-model="prereq.relationship"
+                      :items="['sibling', 'parent']"
+                      label="Relationship"
+                      density="compact"
+                      hide-details
+                    />
+                  </v-col>
+                  <v-col cols="6">
+                    <v-select
+                      v-model="prereq.uiOperation"
+                      :items="['show', 'hide']"
+                      label="Operation"
+                      density="compact"
+                      hide-details
+                    />
+                  </v-col>
+                </v-row>
+
+                <div
+                  v-if="index < newQuestion.prerequisites.length - 1"
+                  class="mt-2"
+                >
+                  <v-chip-group
+                    v-model="newQuestion.prerequisiteJoiner"
+                    mandatory
+                  >
+                    <v-chip value="AND" size="small" variant="outlined" filter>AND</v-chip>
+                    <v-chip value="OR" size="small" variant="outlined" filter>OR</v-chip>
+                  </v-chip-group>
+                </div>
+              </div>
+            </div>
+
             <div class="d-flex">
               <v-btn
                 color="primary"
@@ -584,7 +679,9 @@
     documentTitle: '',
     docVisible: [],
     docOrder: null,
-    dependentOn: null
+    dependentOn: null,
+    prerequisites: [],
+    prerequisiteJoiner: ''
   })
 
   const questions = ref([])
@@ -607,6 +704,13 @@
         value: q.jsonPath
       }))
     ]
+  })
+
+  const availableQuestionsForPrereq = computed(() => {
+    return questions.value.map(q => ({
+      label: `${q.questionLabel} (${q.jsonPath})`,
+      value: q.jsonPath
+    }))
   })
 
   const uniqueSections = computed(() => {
@@ -672,6 +776,31 @@
         const orderB = b.docOrder != null ? b.docOrder : b._index
         return orderA - orderB
       })
+  }
+
+  const addPrerequisite = () => {
+    newQuestion.value.prerequisites.push({
+      questionJsonKey: '',
+      relationship: 'sibling',
+      uiOperation: 'show',
+      matchingCondition: [],
+      _matchingConditionText: ''
+    })
+  }
+
+  const removePrerequisite = (index) => {
+    newQuestion.value.prerequisites.splice(index, 1)
+  }
+
+  const parseMatchingCondition = (prereq) => {
+    if (prereq._matchingConditionText) {
+      prereq.matchingCondition = prereq._matchingConditionText
+        .split(',')
+        .map(s => s.trim())
+        .filter(s => s.length > 0)
+    } else {
+      prereq.matchingCondition = []
+    }
   }
 
   const openUploadDialog = () => {
@@ -746,7 +875,15 @@
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
           docOrder: q.Document?.DocOrder ?? null,
-          dependentOn: questionDependencyMap[key] || null
+          dependentOn: questionDependencyMap[key] || null,
+          prerequisites: Array.isArray(q.Prerequisite) ? q.Prerequisite.map(p => ({
+            questionJsonKey: p.QuestionJsonKey || '',
+            relationship: p.Relationship || 'sibling',
+            uiOperation: p.UIOperation || 'show',
+            matchingCondition: p.MatchingCondition || [],
+            _matchingConditionText: (p.MatchingCondition || []).join(', ')
+          })) : [],
+          prerequisiteJoiner: q.PrerequisiteJoiner || ''
         })
       })
       
@@ -800,7 +937,9 @@
       documentTitle: '',
       docVisible: [],
       docOrder: null,
-      dependentOn: null
+      dependentOn: null,
+      prerequisites: [],
+      prerequisiteJoiner: ''
     }
     jsonPathOverride.value = false
   }
@@ -830,8 +969,15 @@
         InputType: q.inputType,
         DefaultValue: "",
         AvailableValue: "",
-        Prerequisite: "",
-        PrerequisiteJoiner: "",
+        Prerequisite: q.prerequisites && q.prerequisites.length > 0
+          ? q.prerequisites.map(p => ({
+              QuestionJsonKey: p.questionJsonKey,
+              Relationship: p.relationship,
+              UIOperation: p.uiOperation,
+              MatchingCondition: p.matchingCondition
+            }))
+          : "",
+        PrerequisiteJoiner: q.prerequisiteJoiner || "",
         AdditionalProperties: [],
         DataSource: "",
         Validation: [],
@@ -971,7 +1117,15 @@
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
           docOrder: q.Document?.DocOrder ?? null,
-          dependentOn: questionDependencyMap[key] || null
+          dependentOn: questionDependencyMap[key] || null,
+          prerequisites: Array.isArray(q.Prerequisite) ? q.Prerequisite.map(p => ({
+            questionJsonKey: p.QuestionJsonKey || '',
+            relationship: p.Relationship || 'sibling',
+            uiOperation: p.UIOperation || 'show',
+            matchingCondition: p.MatchingCondition || [],
+            _matchingConditionText: (p.MatchingCondition || []).join(', ')
+          })) : [],
+          prerequisiteJoiner: q.PrerequisiteJoiner || ''
         })
       })
       
@@ -1355,5 +1509,16 @@
   .doc-title {
     white-space: normal;
     line-height: 1.4;
+  }
+
+  .prereq-card {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  :deep(.v-theme--dark) .prereq-card {
+    border-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.02);
   }
 </style>
