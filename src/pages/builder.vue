@@ -245,12 +245,24 @@
                     <v-select
                       v-model="prereq.uiOperation"
                       :items="['show', 'hide']"
-                      label="Operation"
+                      label="UI Operation"
                       density="compact"
                       hide-details
                     />
                   </v-col>
                 </v-row>
+
+                <v-select
+                  v-model="prereq.operation"
+                  :items="operationOptions"
+                  item-title="label"
+                  item-value="value"
+                  label="Comparison Operation (optional)"
+                  density="compact"
+                  hide-details
+                  clearable
+                  class="mt-2"
+                />
 
                 <div
                   v-if="index < newQuestion.prerequisites.length - 1"
@@ -438,15 +450,19 @@
             Questions ({{ questions.length }})
           </v-card-title>
 
-          <v-tabs v-if="questions.length > 0" v-model="selectedSectionTab" class="mb-3">
-            <v-tab
-              v-for="section in uniqueSections"
-              :key="section"
-              :value="section"
-            >
-              {{ section }} ({{ getQuestionsBySection(section).length }})
-            </v-tab>
-          </v-tabs>
+          <div v-if="questions.length > 0" class="section-tabs-wrapper mb-3">
+            <div class="section-tabs-scroll">
+              <button
+                v-for="section in uniqueSections"
+                :key="section"
+                class="section-tab-btn"
+                :class="{ 'section-tab-active': selectedSectionTab === section }"
+                @click="selectedSectionTab = section"
+              >
+                {{ section }} ({{ getQuestionsBySection(section).length }})
+              </button>
+            </div>
+          </div>
 
           <v-window v-if="questions.length > 0" v-model="selectedSectionTab">
             <v-window-item
@@ -670,6 +686,13 @@
 
   const inputTypes = ['text', 'number', 'decimal', 'dropdown', 'address', 'radio', 'checkbox', 'date', 'textarea', 'typeahead', 'table', 'hidden', 'note', 'currency-v1', 'currency']
 
+  const operationOptions = [
+    { label: 'Less than', value: 'lt' },
+    { label: 'Greater than', value: 'gt' },
+    { label: 'Less than or equal', value: 'lte' },
+    { label: 'Greater than or equal', value: 'gte' }
+  ]
+
   const newQuestion = ref({
     jsonPath: '',
     questionLabel: '',
@@ -717,7 +740,10 @@
     // If mapping data exists, use sections from mapping to preserve order
     if (mappingData.value?.Mapping) {
       const mappingSections = mappingData.value.Mapping.map(m => m.Section)
-      return mappingSections.length > 0 ? mappingSections : ['BusinessDetails']
+      const hasUnmapped = questions.value.some(q => !mappingSections.includes(q.section))
+      const result = [...mappingSections]
+      if (hasUnmapped) result.push('Unmapped')
+      return result.length > 0 ? result : ['BusinessDetails']
     }
     // Otherwise, get unique sections from questions
     const sections = [...new Set(questions.value.map(q => q.section))]
@@ -757,6 +783,7 @@
   }
 
   const getQuestionsBySection = (section) => {
+    const mappingSections = mappingData.value?.Mapping?.map(m => m.Section) || []
     return questions.value
       .map((q, index) => ({ 
         ...q, 
@@ -764,7 +791,12 @@
         depth: getQuestionDepth(q),
         hasChildren: hasChildren(q.jsonPath)
       }))
-      .filter(q => q.section === section)
+      .filter(q => {
+        if (section === 'Unmapped') {
+          return !mappingSections.includes(q.section)
+        }
+        return q.section === section
+      })
   }
 
   const getDocVisibleQuestions = (docType) => {
@@ -783,6 +815,7 @@
       questionJsonKey: '',
       relationship: 'sibling',
       uiOperation: 'show',
+      operation: '',
       matchingCondition: [],
       _matchingConditionText: ''
     })
@@ -871,7 +904,7 @@
           questionLabel: q.QuestionLabel,
           controlLabel: q.ControlLabel,
           inputType: q.InputType,
-          section: questionSectionMap[key] || 'BusinessDetails',
+          section: questionSectionMap[key] || 'Unmapped',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
           docOrder: q.Document?.DocOrder ?? null,
@@ -880,6 +913,7 @@
             questionJsonKey: p.QuestionJsonKey || '',
             relationship: p.Relationship || 'sibling',
             uiOperation: p.UIOperation || 'show',
+            operation: p.Operation || '',
             matchingCondition: p.MatchingCondition || [],
             _matchingConditionText: (p.MatchingCondition || []).join(', ')
           })) : [],
@@ -970,12 +1004,16 @@
         DefaultValue: "",
         AvailableValue: "",
         Prerequisite: q.prerequisites && q.prerequisites.length > 0
-          ? q.prerequisites.map(p => ({
-              QuestionJsonKey: p.questionJsonKey,
-              Relationship: p.relationship,
-              UIOperation: p.uiOperation,
-              MatchingCondition: p.matchingCondition
-            }))
+          ? q.prerequisites.map(p => {
+              const prereqObj = {
+                QuestionJsonKey: p.questionJsonKey,
+                Relationship: p.relationship,
+                UIOperation: p.uiOperation,
+                MatchingCondition: p.matchingCondition
+              }
+              if (p.operation) prereqObj.Operation = p.operation
+              return prereqObj
+            })
           : "",
         PrerequisiteJoiner: q.prerequisiteJoiner || "",
         AdditionalProperties: [],
@@ -1113,7 +1151,7 @@
           questionLabel: q.QuestionLabel,
           controlLabel: q.ControlLabel,
           inputType: q.InputType,
-          section: questionSectionMap[key] || 'BusinessDetails',
+          section: questionSectionMap[key] || 'Unmapped',
           documentTitle: q.Document?.DocumentTitle || q.QuestionLabel,
           docVisible: q.Document?.DocVisible || [],
           docOrder: q.Document?.DocOrder ?? null,
@@ -1122,6 +1160,7 @@
             questionJsonKey: p.QuestionJsonKey || '',
             relationship: p.Relationship || 'sibling',
             uiOperation: p.UIOperation || 'show',
+            operation: p.Operation || '',
             matchingCondition: p.MatchingCondition || [],
             _matchingConditionText: (p.MatchingCondition || []).join(', ')
           })) : [],
@@ -1520,5 +1559,105 @@
   :deep(.v-theme--dark) .prereq-card {
     border-color: rgba(255, 255, 255, 0.12);
     background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .section-tabs-wrapper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  :deep(.v-theme--dark) .section-tabs-wrapper {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .section-tabs-scroll {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 2px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.06);
+  }
+
+  .section-tabs-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .section-tabs-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+  }
+
+  .section-tabs-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+  }
+
+  .section-tabs-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  :deep(.v-theme--dark) .section-tabs-scroll {
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0.08);
+  }
+
+  :deep(.v-theme--dark) .section-tabs-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  :deep(.v-theme--dark) .section-tabs-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  :deep(.v-theme--dark) .section-tabs-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .section-tab-btn {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    white-space: nowrap;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .section-tab-btn:hover {
+    color: rgba(0, 0, 0, 0.87);
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  .section-tab-active {
+    color: #1976d2;
+    border-bottom-color: #1976d2;
+  }
+
+  .section-tab-active:hover {
+    color: #1976d2;
+    background: rgba(25, 118, 210, 0.04);
+  }
+
+  :deep(.v-theme--dark) .section-tab-btn {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  :deep(.v-theme--dark) .section-tab-btn:hover {
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  :deep(.v-theme--dark) .section-tab-active {
+    color: #64b5f6;
+    border-bottom-color: #64b5f6;
+  }
+
+  :deep(.v-theme--dark) .section-tab-active:hover {
+    color: #64b5f6;
+    background: rgba(100, 181, 246, 0.08);
   }
 </style>
